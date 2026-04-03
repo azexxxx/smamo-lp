@@ -209,7 +209,6 @@ img {
 }
 
 .cta-link-main {
-    display: inline-block;
     width: 100%;
     text-decoration: none;
     /* Clean and simple layout unit */
@@ -400,7 +399,6 @@ img {
     padding: 1px 4px;
     /* border-radius: 4px; */
     margin: 0 4px;
-    display: inline-block;
     line-height: normal;
 }
 
@@ -410,7 +408,6 @@ img {
     padding: 1px 6px;
     /* border-radius: 4px; */
     margin: 0 4px;
-    display: inline-block;
     line-height: normal;
 }
 
@@ -951,7 +948,6 @@ img {
 /* Reveal Animation (Slide background then show text) */
 .reveal-text {
     position: relative;
-    display: inline-block;
     overflow: hidden;
     opacity: 0;
     /* Hidden initially */
@@ -1365,7 +1361,6 @@ img {
 }
 
 .price-label {
-    display: inline-block;
     padding: 30px 12px;
     border: 1px solid #FFFFFF;
     font-size: 13px;
