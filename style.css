@@ -1014,7 +1014,7 @@ img {
         background-attachment: scroll !important;
         background-image: url('img/body-bg_sp.jpg'); /* スマホ専用背景：特徴セクション */
         background-repeat: repeat;
-        background-size: auto;
+        background-size: 100% auto; /* 横幅いっぱいにフィットさせる */
     }
 }
 
@@ -1468,7 +1468,7 @@ img {
         background-attachment: scroll !important;
         background-image: url('img/body-bg_sp.jpg'); /* スマホ専用背景：料金セクション */
         background-repeat: repeat;
-        background-size: auto;
+        background-size: 100% auto; /* 横幅いっぱいにフィットさせる */
     }
 
     .price-plans-wrap {
