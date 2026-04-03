@@ -1230,8 +1230,8 @@ img {
 /* Security Section */
 .security-section {
     padding: 100px 0;
-    background-color: #0F172A;
-    /* Solid dark for security emphasis */
+    background-color: #10151E;
+    /* Solid dark navy for visual consistency */
     color: #FFFFFF;
 }
 
