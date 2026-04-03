@@ -604,43 +604,41 @@ img {
 .bubble-track-left,
 .bubble-track-right {
     display: flex;
+    width: max-content;
     white-space: nowrap;
+}
+
+.bubble-set {
+    display: flex;
+    flex-shrink: 0;
     will-change: transform;
 }
 
-.bubble-track-left {
-    animation: scrollLeft 10.0s linear infinite;
-    /* 15sから高速化 */
+.bubble-track-left .bubble-set {
+    animation: scrollLeft 26s linear infinite; /* PCSP共通：落ち着いて読める速度 */
 }
 
-.bubble-track-right {
-    animation: scrollRight 12.0s linear infinite;
-    /* 18sから高速化 */
+.bubble-track-right .bubble-set {
+    animation: scrollRight 30s linear infinite; /* PCSP共通：少しズラして自然さを演出 */
 }
 
 .bubble-row img {
-    height: 132px;
-    /* 165pxの80%に縮小 */
+    height: 160px; /* PC版：160pxの大型表示へ */
     margin: 0 10px;
     opacity: 1;
+    flex-shrink: 0;
+    backface-visibility: hidden; /* アニメーション中の文字のぼやけ・チラつきを防止 */
+    -webkit-backface-visibility: hidden;
 }
 
 @keyframes scrollLeft {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-33.333%);
-    }
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); } /* 箱自体の幅なので、ブラウザ計算誤差はゼロ！ */
 }
 
 @keyframes scrollRight {
-    0% {
-        transform: translateX(-33.333%);
-    }
-    100% {
-        transform: translateX(0);
-    }
+    0% { transform: translate3d(-100%, 0, 0); }
+    100% { transform: translate3d(0, 0, 0); }
 }
 
 .solution-declaration {
@@ -947,6 +945,7 @@ img {
 
 /* Reveal Animation (Slide background then show text) */
 .reveal-text {
+    display: inline-block;
     position: relative;
     overflow: hidden;
     opacity: 0;
@@ -1471,7 +1470,7 @@ img {
         align-items: stretch;
         gap: 20px;
     }
-}
+
 
     .price-separator {
         display: none;
@@ -2179,6 +2178,23 @@ img {
     /* Solution & Titles */
     .solution-section {
         padding: 64px 0;
+    }
+
+    .bubble-track-left .bubble-set {
+        animation: scrollLeft 26s linear infinite !important; /* スマホ：落ち着いて読める速度へ調整 */
+    }
+
+    .bubble-track-right .bubble-set {
+        animation: scrollRight 30s linear infinite !important; /* スマホ：下段のリズム調整 */
+    }
+
+    .bubble-row img {
+        height: 142px; /* スマホ最適化：142px */
+        margin: 0 10px;
+        will-change: transform;
+        flex-shrink: 0;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
     }
 
     .section-subtitle,
