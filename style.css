@@ -1011,6 +1011,10 @@ img {
 @media (max-width: 767px) {
     .features-section {
         padding: 64px 0;
+        background-attachment: scroll !important;
+        background-image: url('img/body-bg_sp.jpg'); /* スマホ専用背景：特徴セクション */
+        background-repeat: repeat;
+        background-size: auto;
     }
 }
 
@@ -1460,11 +1464,19 @@ img {
 }
 
 @media (max-width: 767px) {
+    .price-section {
+        background-attachment: scroll !important;
+        background-image: url('img/body-bg_sp.jpg'); /* スマホ専用背景：料金セクション */
+        background-repeat: repeat;
+        background-size: auto;
+    }
+
     .price-plans-wrap {
         flex-direction: column;
         align-items: stretch;
         gap: 20px;
     }
+}
 
     .price-separator {
         display: none;
@@ -1632,6 +1644,15 @@ img {
     /* Refined to user selection */
     margin: 0 auto;
 }
+
+@media (max-width: 767px) {
+    .final-cta-section {
+        background-attachment: scroll !important;
+        background-image: url('img/fv_background_sp.jpg'); /* スマホ専用背景 */
+        background-position: center bottom;
+    }
+}
+
 
 
 
@@ -2104,6 +2125,8 @@ img {
     /* Responsive Image Swap (PC -> SP) */
     .hero-bg {
         background-image: url('img/fv_background_sp.jpg'); /* スマホ専用背景 */
+        background-attachment: scroll !important; /* iPhone等の実機対策: 固定を解除 */
+        background-position: center bottom;
     }
 
     .logo-img {
