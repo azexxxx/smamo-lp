@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <meta name="googlebot" content="noindex, nofollow, noarchive">
+
+    <title>お申込ありがとうございます | SMAMO（スマモ）</title>
+    <meta name="description" content="SMAMO（スマモ）のお申込完了ページです。ご注文内容と今後の流れをご案内します。">
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --thankyou-bg: #12161f;
+            --thankyou-line: rgba(255, 255, 255, 0.12);
+            --thankyou-text-soft: rgba(255, 255, 255, 0.72);
+            --thankyou-blue: #4c9aff;
+            --thankyou-panel-bg: rgba(255, 255, 255, 0.05);
+            --thankyou-panel-border: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            background: var(--thankyou-bg);
+            background-image: url('img/body-bg.jpg');
+            background-size: cover;
+            background-position: center top;
+            background-attachment: fixed;
+            color: #ffffff;
+        }
+
+        .header {
+            background: transparent;
+        }
+
+        .thankyou-page {
+            padding-top: var(--header-height);
+        }
+
+        .thankyou-hero {
+            padding: 72px 0 56px;
+        }
+
+        .thankyou-hero__inner {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .thankyou-hero__copy {
+            text-align: center;
+        }
+
+        .thankyou-check {
+            width: 58px;
+            height: 58px;
+            margin: 0 auto 18px;
+            border: 4px solid rgba(76, 154, 255, 1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--thankyou-blue);
+            background: rgba(76, 154, 255, 0.05);
+        }
+
+        .thankyou-check svg {
+            width: 44px;
+            height: 44px;
+            display: block;
+        }
+
+        .thankyou-title {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: 0.06em;
+            white-space: nowrap;
+        }
+
+        .thankyou-lead {
+            margin-top: 20px;
+            font-size: 16px;
+            line-height: 1.9;
+            color: var(--thankyou-text-soft);
+        }
+
+        .thankyou-hero__note {
+            width: fit-content;
+            margin: 16px auto 0;
+            padding: 8px 14px;
+            border: 1px solid rgba(76, 154, 255, 0.32);
+            border-radius: 0;
+            background: rgba(76, 154, 255, 0.12);
+            font-size: 15px;
+            line-height: 1.8;
+            color: rgba(168, 208, 255, 0.98);
+        }
+
+        .thankyou-summary-card,
+        .thankyou-panel,
+        .thankyou-step,
+        .thankyou-support-link {
+            background: var(--thankyou-panel-bg);
+            color: #ffffff;
+            border-radius: 18px;
+            border: 1px solid var(--thankyou-panel-border);
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.14);
+            backdrop-filter: blur(10px);
+        }
+
+        .thankyou-summary-card {
+            padding: 28px 24px;
+        }
+
+        .thankyou-summary-card__eyebrow,
+        .thankyou-summary-card__head p {
+            display: none;
+        }
+
+        .thankyou-summary-card h2 {
+            font-size: 28px;
+            line-height: 1.3;
+            color: #ffffff;
+        }
+
+        .thankyou-summary-list {
+            list-style: none;
+            margin-top: 18px;
+            padding: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .thankyou-summary-list li {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .thankyou-summary-list > li > span {
+            color: rgba(255, 255, 255, 0.58);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .thankyou-summary-list strong {
+            text-align: right;
+            color: #ffffff;
+            font-size: 16px;
+        }
+
+        .thankyou-summary-inline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .thankyou-summary-badge {
+            display: inline-flex;
+            align-items: center;
+            min-height: 34px;
+            padding: 0 12px;
+            border-radius: 8px;
+            background: #5b4630;
+            color: #f5c16c;
+            font-size: 13px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .thankyou-summary-divider {
+            margin-top: 0;
+            padding-top: 12px;
+        }
+
+        .thankyou-summary-total {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .thankyou-summary-total span {
+            color: rgba(255, 255, 255, 0.58);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .thankyou-summary-total strong {
+            color: #ffffff;
+            font-size: 32px;
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .thankyou-summary-total small {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.52);
+        }
+
+        .thankyou-order-box {
+            margin-top: 22px;
+            padding: 18px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            background: rgba(0, 0, 0, 0.08);
+        }
+
+        .thankyou-order-box span {
+            color: rgba(255, 255, 255, 0.58);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .thankyou-order-box strong {
+            color: #ffffff;
+            font-size: 16px;
+            letter-spacing: 0.04em;
+        }
+
+        .price-section {
+            padding-top: 0;
+        }
+
+        .thankyou-single-column {
+            max-width: 760px;
+            margin: 0 auto;
+            display: grid;
+            gap: 0;
+        }
+
+        .thankyou-panel {
+            padding: 28px;
+        }
+
+        .thankyou-panel--plain {
+            padding: 0;
+            background: none;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            backdrop-filter: none;
+        }
+
+        .thankyou-panel__title {
+            font-size: 26px;
+            line-height: 1.4;
+            color: #ffffff;
+        }
+
+        .thankyou-panel__lead,
+        .thankyou-support-link span,
+        .thankyou-note-box p,
+        .thankyou-step p,
+        .thankyou-support-note {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .thankyou-panel__lead {
+            margin-top: 10px;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .thankyou-panel--plain .thankyou-panel__lead {
+            margin-top: 0;
+        }
+
+        .thankyou-note-box {
+            margin-top: 0;
+            padding-top: 18px;
+        }
+
+        .thankyou-note-box h3 {
+            font-size: 16px;
+            color: #ffffff;
+        }
+
+        .thankyou-note-box p {
+            margin-top: 8px;
+            line-height: 1.8;
+        }
+
+        .thankyou-flow-section {
+            padding: 0 0 6px;
+        }
+
+        .thankyou-flow-panel {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 28px 24px 18px;
+            background: var(--thankyou-panel-bg);
+            color: #ffffff;
+            border-radius: 18px;
+            border: 1px solid var(--thankyou-panel-border);
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.14);
+            backdrop-filter: blur(10px);
+        }
+
+        .thankyou-section-head {
+            margin: 0 0 18px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .thankyou-flow-panel .thankyou-section-head {
+            justify-content: center;
+            text-align: center;
+        }
+
+        .thankyou-flow-panel .section-title-white {
+            font-size: 32px;
+            line-height: 1.2;
+        }
+
+        .thankyou-section-number {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--thankyou-blue);
+        }
+
+        .thankyou-flow-divider {
+            height: 1px;
+            margin-bottom: 8px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .thankyou-flow-grid {
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .thankyou-step {
+            position: relative;
+            display: grid;
+            grid-template-columns: 56px minmax(0, 1fr);
+            gap: 12px;
+            padding: 18px 0;
+            background: none;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            backdrop-filter: none;
+        }
+
+        .thankyou-step:not(:last-child)::before {
+            content: "";
+            position: absolute;
+            left: 21px;
+            top: 62px;
+            bottom: -8px;
+            width: 1px;
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .thankyou-step__num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.14);
+            background: transparent;
+            font-size: 18px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            z-index: 1;
+        }
+
+        .thankyou-step:first-child .thankyou-step__num {
+            border-color: var(--thankyou-blue);
+            box-shadow: 0 0 0 7px rgba(76, 154, 255, 0.12);
+            color: var(--thankyou-blue);
+        }
+
+        .thankyou-step__body h3 {
+            margin-top: 2px;
+            font-size: 18px;
+            line-height: 1.5;
+            color: #ffffff;
+        }
+
+        .thankyou-step:first-child .thankyou-step__body h3 {
+            color: var(--thankyou-blue);
+        }
+
+        .thankyou-step__body p {
+            margin-top: 10px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .thankyou-step__time {
+            display: inline-flex;
+            align-items: center;
+            min-height: 42px;
+            padding: 0 18px;
+            margin-top: 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .thankyou-step:first-child .thankyou-step__time {
+            color: var(--thankyou-blue);
+            border-color: rgba(76, 154, 255, 0.34);
+            background: rgba(76, 154, 255, 0.08);
+        }
+
+        .thankyou-step:first-child .thankyou-step__time::before {
+            content: "✓";
+            margin-right: 6px;
+            font-size: 12px;
+            line-height: 1;
+        }
+
+        .thankyou-support-section {
+            padding: 26px 0 28px;
+        }
+
+        .thankyou-support-menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 0;
+        }
+
+        .thankyou-support-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 20px;
+            text-decoration: none;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            box-shadow: none;
+            background: var(--thankyou-panel-bg);
+            color: #fff;
+            border-radius: 9999px;
+        }
+
+        .thankyou-support-link strong {
+            font-size: 14px;
+            line-height: 1;
+            color: #fff;
+        }
+
+        @media (max-width: 900px) {
+            .thankyou-hero__inner {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .thankyou-page {
+                padding-top: 72px;
+                font-size: 15px;
+            }
+
+            .thankyou-hero {
+                padding: 48px 0 36px;
+            }
+
+            .thankyou-title {
+                font-size: 24px;
+            }
+
+            .thankyou-summary-card h2 {
+                font-size: 20px;
+            }
+
+            .thankyou-flow-panel .section-title-white {
+                font-size: 20px;
+            }
+
+            .thankyou-section-head {
+                margin: 0 0 12px;
+            }
+
+            .thankyou-summary-card {
+                padding: 16px 12px;
+            }
+
+            .thankyou-summary-list > li > span,
+            .thankyou-summary-list strong {
+                font-size: 15px;
+            }
+
+            .thankyou-summary-list li {
+                padding: 10px 0;
+            }
+
+            .thankyou-lead,
+            .thankyou-hero__note,
+            .thankyou-note-box p,
+            .thankyou-summary-list li,
+            .thankyou-order-box span,
+            .thankyou-order-box strong,
+            .thankyou-step__body p {
+                font-size: 15px;
+            }
+
+            .thankyou-flow-section {
+                padding: 0 0 4px;
+            }
+
+            .thankyou-flow-panel {
+                padding: 16px 12px;
+                border-radius: 18px;
+            }
+
+            .thankyou-step {
+                grid-template-columns: 40px minmax(0, 1fr);
+                gap: 10px;
+                padding: 12px 0;
+            }
+
+            .thankyou-step__num {
+                width: 38px;
+                height: 38px;
+                font-size: 13px;
+            }
+
+            .thankyou-step:not(:last-child)::before {
+                left: 18px;
+                top: 54px;
+            }
+
+            .thankyou-step__body h3 {
+                font-size: 16px;
+            }
+
+            .thankyou-step__body p {
+                line-height: 1.7;
+            }
+
+            .thankyou-step__time {
+                min-height: 32px;
+                padding: 0 14px;
+                font-size: 13px;
+                margin-top: 12px;
+            }
+
+            .thankyou-order-box {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+                padding: 12px 16px;
+            }
+
+            .thankyou-summary-total strong {
+                font-size: 24px;
+            }
+
+            .thankyou-support-menu {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="header-logo">
+                <a href="index.html" aria-label="SMAMOトップへ戻る">
+                    <img src="img/header-logo.png" alt="SMAMO" class="logo-img">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="thankyou-page">
+        <section class="thankyou-hero">
+            <div class="container thankyou-hero__inner">
+                <div class="thankyou-hero__copy">
+                    <div class="thankyou-check" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 12.5L10.2 15.7L17 8.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h1 class="thankyou-title">お申込を承りました</h1>
+                    <p class="thankyou-lead">ご登録ありがとうございます。<br>ご注文内容と今後の流れをご案内いたします。</p>
+                    <p class="thankyou-hero__note">登録完了メールをお送りしました。届かない場合は迷惑メールフォルダもご確認ください。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="price-section">
+            <div class="container">
+                <div class="thankyou-single-column">
+                    <aside class="thankyou-summary-card" aria-label="申込内容の概要">
+                        <div class="thankyou-summary-card__head">
+                            <h2>ご注文内容</h2>
+                        </div>
+                        <div class="thankyou-summary-card__body">
+                            <ul class="thankyou-summary-list">
+                                <li><span>プラン</span><strong>月額プラン</strong></li>
+                                <li><span>SMSオプション</span><strong>あり</strong></li>
+                                <li><span>月額料金</span><strong>¥3,278 /台（税込）</strong></li>
+                                <li><span>初期費用</span><strong>¥33,000（税込）</strong></li>
+                                <li><span>お支払い方法</span><strong>クレジットカード</strong></li>
+                                <li>
+                                    <span>無料体験期間</span>
+                                    <strong class="thankyou-summary-inline">
+                                        <span>納品後 3日間</span>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <div class="thankyou-summary-divider">
+                                <div class="thankyou-summary-total">
+                                    <span>初回お支払い額</span>
+                                    <strong>¥36,278 <small>（税込）</small></strong>
+                                </div>
+                                <div class="thankyou-order-box">
+                                    <span>注文番号</span>
+                                    <strong>SMM-20260508-X7K2N9</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <div class="thankyou-note-box">
+                        <h3>無料体験期間と課金開始のタイミング</h3>
+                        <p>無料体験は納品（初期設定完了メール到達時点）から3日間です。期間中にキャンセルされない場合、自動的に有料プランへ移行し、ご登録のクレジットカードへ請求が開始されます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="flow" class="thankyou-flow-section">
+            <div class="container">
+                <div class="thankyou-flow-panel">
+                    <div class="thankyou-section-head">
+                        <h2 class="section-title-white">今後の流れ</h2>
+                    </div>
+                    <div class="thankyou-flow-divider" aria-hidden="true"></div>
+
+                    <div class="thankyou-flow-grid">
+                        <article class="thankyou-step">
+                            <div class="thankyou-step__rail">
+                                <span class="thankyou-step__num">1</span>
+                            </div>
+                            <div class="thankyou-step__body">
+                                <h3>お申込・カードご登録の完了</h3>
+                                <p>本ページは登録完了の確認です。ご登録のメールアドレス宛に控えをお送りしています。</p>
+                                <span class="thankyou-step__time">完了</span>
+                            </div>
+                        </article>
+
+                        <article class="thankyou-step">
+                            <div class="thankyou-step__rail">
+                                <span class="thankyou-step__num">2</span>
+                            </div>
+                            <div class="thankyou-step__body">
+                                <h3>初期設定の準備</h3>
+                                <p>担当（SMAMO運営）が、お客様専用の端末・SIMの初期設定を進めます。完了次第、メールでお知らせいたします。</p>
+                                <span class="thankyou-step__time">数分〜2営業日</span>
+                            </div>
+                        </article>
+
+                        <article class="thankyou-step">
+                            <div class="thankyou-step__rail">
+                                <span class="thankyou-step__num">3</span>
+                            </div>
+                            <div class="thankyou-step__body">
+                                <h3>準備完了通知メールの受信</h3>
+                                <p>初期設定が完了するとメールでお知らせいたします。SMSプランありの場合は、SMSアプリの使用方法についても併せてお送りします。</p>
+                                <span class="thankyou-step__time">準備完了時</span>
+                            </div>
+                        </article>
+
+                        <article class="thankyou-step">
+                            <div class="thankyou-step__rail">
+                                <span class="thankyou-step__num">4</span>
+                            </div>
+                            <div class="thankyou-step__body">
+                                <h3>SMAMOアプリのインストール</h3>
+                                <p>App Store / Google Play から、メールに記載の手順でアプリを取得してください。ストアでは「電卓」として表示されます。</p>
+                                <span class="thankyou-step__time">受信後すぐ</span>
+                            </div>
+                        </article>
+
+                        <article class="thankyou-step">
+                            <div class="thankyou-step__rail">
+                                <span class="thankyou-step__num">5</span>
+                            </div>
+                            <div class="thankyou-step__body">
+                                <h3>無料体験スタート（3日間）</h3>
+                                <p>アプリの初期設定が完了した時点（=納品時）から、3日間の無料体験期間が始まります。期間中はいつでもキャンセル可能です。</p>
+                                <span class="thankyou-step__time">納品から3日間</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="support" class="thankyou-support-section">
+            <div class="container">
+                <div class="thankyou-support-menu">
+                    <a href="index.html#faq-section" class="thankyou-support-link"><strong>よくあるご質問</strong></a>
+                    <a href="index.html" class="thankyou-support-link"><strong>マイページ</strong></a>
+                    <a href="policy.html#legal" class="thankyou-support-link"><strong>お問い合わせ</strong></a>
+                    <a href="policy.html#terms" class="thankyou-support-link"><strong>解約方法</strong></a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container footer-container">
+                <div class="footer-logo">
+                    <img src="img/logo.png" alt="SMAMO" class="footer-logo-img">
+                </div>
+                <nav class="footer-nav">
+                    <a href="policy.html#terms" rel="noopener noreferrer">利用規約</a>
+                    <a href="policy.html#privacy" rel="noopener noreferrer">プライバシーポリシー</a>
+                    <a href="policy.html#security" rel="noopener noreferrer">情報セキュリティ基本方針</a>
+                    <a href="policy.html#antisocial" rel="noopener noreferrer">反社会的勢力排除の方針</a>
+                    <a href="policy.html#legal" rel="noopener noreferrer">特定商取引法に基づく表記</a>
+                </nav>
+                <p class="copyright">© 2026 SMAMO. All rights reserved.<br class="sp-only">（無断転載および引用禁止）</p>
+            </div>
+        </footer>
+    </main>
+</body>
+
+</html>

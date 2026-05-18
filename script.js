@@ -15,7 +15,143 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
     fadeElements.forEach(el => observer.observe(el));
 
-    // 2. Survey Section Scroll Logic (Fixed: Targets .survey-card instead of .survey-item-btn)
+    // 2. Survey Carousel Logic (Patterned after Case Study)
+    const surveyCarousel = document.getElementById('surveyCarousel');
+    const surveySlides = document.querySelectorAll('.survey-card');
+    const surveyPrevBtn = document.getElementById('surveyPrev');
+    const surveyNextBtn = document.getElementById('surveyNext');
+    const surveyDots = document.querySelectorAll('#surveyDots .dot');
+    let currentSurveyIndex = 0;
+
+    let sIsDragging = false;
+    let sStartPosX = 0;
+    let sCurrentTranslate = 0;
+    let sPrevTranslate = 0;
+    const sDragThreshold = 50;
+
+    if (surveyCarousel && surveySlides.length > 0) {
+        function updateSurveyCarousel() {
+            const containerWidth = surveyCarousel.parentElement.offsetWidth;
+            const targetSlide = surveySlides[currentSurveyIndex];
+            const slideWidth = targetSlide.offsetWidth;
+            const slideLeft = targetSlide.offsetLeft;
+
+            sCurrentTranslate = (containerWidth / 2) - (slideLeft + (slideWidth / 2));
+            surveyCarousel.style.transition = 'transform 0.4s cubic-bezier(0.23, 1, 0.32, 1)';
+            surveyCarousel.style.transform = `translateX(${sCurrentTranslate}px)`;
+            sPrevTranslate = sCurrentTranslate;
+
+            surveySlides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSurveyIndex);
+            });
+            surveyDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSurveyIndex);
+            });
+        }
+
+        function sDragStart(e) {
+            sIsDragging = true;
+            sStartPosX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+            surveyCarousel.style.transition = 'none';
+        }
+        function sDragMove(e) {
+            if (!sIsDragging) return;
+            const currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+            const diffX = currentX - sStartPosX;
+            surveyCarousel.style.transform = `translateX(${sPrevTranslate + diffX}px)`;
+        }
+        function sDragEnd(e) {
+            if (!sIsDragging) return;
+            sIsDragging = false;
+            const endX = e.type.includes('mouse') ? e.pageX : (e.changedTouches ? e.changedTouches[0].clientX : sStartPosX);
+            const diffX = endX - sStartPosX;
+            if (diffX < -sDragThreshold) {
+                currentSurveyIndex = Math.min(currentSurveyIndex + 1, surveySlides.length - 1);
+            } else if (diffX > sDragThreshold) {
+                currentSurveyIndex = Math.max(currentSurveyIndex - 1, 0);
+            }
+            updateSurveyCarousel();
+        }
+
+        surveyCarousel.addEventListener('mousedown', sDragStart);
+        window.addEventListener('mousemove', sDragMove);
+        window.addEventListener('mouseup', sDragEnd);
+        surveyCarousel.addEventListener('touchstart', sDragStart);
+        window.addEventListener('touchmove', sDragMove);
+        surveyCarousel.addEventListener('touchend', sDragEnd);
+
+        // Hover to Auto-scroll (via Zones)
+        const surveyZonePrev = document.getElementById('surveyZonePrev');
+        const surveyZoneNext = document.getElementById('surveyZoneNext');
+        let sAutoScrollTimer;
+
+        function sStartAutoScroll(dir) {
+            if (sAutoScrollTimer) return;
+            sAutoScrollTimer = setInterval(() => {
+                if (dir === 'next') {
+                    currentSurveyIndex = (currentSurveyIndex < surveySlides.length - 1) ? currentSurveyIndex + 1 : 0;
+                } else {
+                    currentSurveyIndex = (currentSurveyIndex > 0) ? currentSurveyIndex - 1 : surveySlides.length - 1;
+                }
+                updateSurveyCarousel();
+            }, 900);
+        }
+        function sStopAutoScroll() {
+            clearInterval(sAutoScrollTimer);
+            sAutoScrollTimer = null;
+        }
+
+        // Zone Click Support
+        [surveyPrevBtn, surveyZonePrev].forEach(el => el?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            sStopAutoScroll();
+            currentSurveyIndex = (currentSurveyIndex > 0) ? currentSurveyIndex - 1 : surveySlides.length - 1;
+            updateSurveyCarousel();
+        }));
+
+        [surveyNextBtn, surveyZoneNext].forEach(el => el?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            sStopAutoScroll();
+            currentSurveyIndex = (currentSurveyIndex < surveySlides.length - 1) ? currentSurveyIndex + 1 : 0;
+            updateSurveyCarousel();
+        }));
+
+        // Hover events for Zone
+        surveyZoneNext?.addEventListener('mouseenter', () => {
+            setTimeout(() => {
+                if (!sAutoScrollTimer && surveyZoneNext.matches(':hover')) {
+                    currentSurveyIndex = (currentSurveyIndex < surveySlides.length - 1) ? currentSurveyIndex + 1 : 0;
+                    updateSurveyCarousel();
+                    sStartAutoScroll('next');
+                }
+            }, 150);
+        });
+        surveyZoneNext?.addEventListener('mouseleave', sStopAutoScroll);
+
+        surveyZonePrev?.addEventListener('mouseenter', () => {
+            setTimeout(() => {
+                if (!sAutoScrollTimer && surveyZonePrev.matches(':hover')) {
+                    currentSurveyIndex = (currentSurveyIndex > 0) ? currentSurveyIndex - 1 : surveySlides.length - 1;
+                    updateSurveyCarousel();
+                    sStartAutoScroll('prev');
+                }
+            }, 150);
+        });
+        surveyZonePrev?.addEventListener('mouseleave', sStopAutoScroll);
+
+        surveyDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                sStopAutoScroll();
+                currentSurveyIndex = index;
+                updateSurveyCarousel();
+            });
+        });
+
+        window.addEventListener('resize', updateSurveyCarousel);
+        setTimeout(updateSurveyCarousel, 100);
+    }
+
+    // 3. Survey Section Click Logic (Auto-scroll to next section)
     const surveyCards = document.querySelectorAll('.survey-card');
     const solutionSection = document.getElementById('solution-section');
     if (surveyCards.length > 0 && solutionSection) {
@@ -29,15 +165,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. FAQ Filtering Logic
     const filterButtons = document.querySelectorAll('.faq-tab-btn');
     const faqItems = document.querySelectorAll('.faq-item');
-    function applyFilter(filter) {
+    const faqMoreBtn = document.getElementById('faqMoreBtn');
+    const faqMoreWrap = faqMoreBtn?.closest('.faq-more-wrap');
+    const FAQ_INITIAL_LIMIT = 5;
+    let faqExpanded = false;
+
+    function updateFaqVisibility(filter) {
+        const visibleItems = [];
+
         faqItems.forEach(item => {
             const category = item.dataset.category;
-            if (filter === 'all' || (category && category.includes(filter))) {
-                item.classList.remove('hide');
-            } else {
-                item.classList.add('hide');
+            const isMatch = filter === 'all' || (category && category.includes(filter));
+
+            item.classList.toggle('hide', !isMatch);
+            item.classList.remove('is-collapsed');
+
+            if (isMatch) {
+                visibleItems.push(item);
             }
         });
+
+        if (!faqExpanded && visibleItems.length > FAQ_INITIAL_LIMIT) {
+            visibleItems.slice(FAQ_INITIAL_LIMIT).forEach(item => item.classList.add('is-collapsed'));
+        }
+
+        faqMoreWrap?.classList.toggle('is-hidden', faqExpanded || visibleItems.length <= FAQ_INITIAL_LIMIT);
+    }
+
+    function applyFilter(filter) {
+        updateFaqVisibility(filter);
     }
     // Initial Filter for FAQ
     const initialActive = document.querySelector('.faq-tab-btn.active');
@@ -48,16 +204,23 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
+            faqExpanded = false;
             applyFilter(button.dataset.filter);
 
             // Re-trigger fade effect
             faqItems.forEach(item => {
-                if (!item.classList.contains('hide')) {
+                if (!item.classList.contains('hide') && !item.classList.contains('is-collapsed')) {
                     item.style.opacity = '0';
                     setTimeout(() => { item.style.opacity = '1'; }, 10);
                 }
             });
         });
+    });
+
+    faqMoreBtn?.addEventListener('click', () => {
+        const activeFilter = document.querySelector('.faq-tab-btn.active')?.dataset.filter || 'all';
+        faqExpanded = true;
+        updateFaqVisibility(activeFilter);
     });
 
     // 4. Case Study Carousel Logic (Updated with Dragging)
@@ -141,18 +304,68 @@ document.addEventListener('DOMContentLoaded', () => {
             img.addEventListener('dragstart', (e) => e.preventDefault());
         });
 
-        prevBtn?.addEventListener('click', () => {
+        // Hover to Auto-scroll (via Zones)
+        const caseZonePrev = document.getElementById('caseZonePrev');
+        const caseZoneNext = document.getElementById('caseZoneNext');
+        let autoScrollTimer;
+
+        function startAutoScroll(dir) {
+            if (autoScrollTimer) return;
+            autoScrollTimer = setInterval(() => {
+                if (dir === 'next') {
+                    currentCaseIndex = (currentCaseIndex < slides.length - 1) ? currentCaseIndex + 1 : 0;
+                } else {
+                    currentCaseIndex = (currentCaseIndex > 0) ? currentCaseIndex - 1 : slides.length - 1;
+                }
+                updateCaseCarousel();
+            }, 1200);
+        }
+        function stopAutoScroll() {
+            clearInterval(autoScrollTimer);
+            autoScrollTimer = null;
+        }
+
+        // Zone Click Support
+        [prevBtn, caseZonePrev].forEach(el => el?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            stopAutoScroll();
             currentCaseIndex = (currentCaseIndex > 0) ? currentCaseIndex - 1 : slides.length - 1;
             updateCaseCarousel();
-        });
+        }));
 
-        nextBtn?.addEventListener('click', () => {
+        [nextBtn, caseZoneNext].forEach(el => el?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            stopAutoScroll();
             currentCaseIndex = (currentCaseIndex < slides.length - 1) ? currentCaseIndex + 1 : 0;
             updateCaseCarousel();
+        }));
+
+        // Hover events for Zone
+        caseZoneNext?.addEventListener('mouseenter', () => {
+            setTimeout(() => {
+                if (!autoScrollTimer && caseZoneNext.matches(':hover')) {
+                    currentCaseIndex = (currentCaseIndex < slides.length - 1) ? currentCaseIndex + 1 : 0;
+                    updateCaseCarousel();
+                    startAutoScroll('next');
+                }
+            }, 300);
         });
+        caseZoneNext?.addEventListener('mouseleave', stopAutoScroll);
+
+        caseZonePrev?.addEventListener('mouseenter', () => {
+            setTimeout(() => {
+                if (!autoScrollTimer && caseZonePrev.matches(':hover')) {
+                    currentCaseIndex = (currentCaseIndex > 0) ? currentCaseIndex - 1 : slides.length - 1;
+                    updateCaseCarousel();
+                    startAutoScroll('prev');
+                }
+            }, 300);
+        });
+        caseZonePrev?.addEventListener('mouseleave', stopAutoScroll);
 
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
+                stopAutoScroll();
                 currentCaseIndex = index;
                 updateCaseCarousel();
             });
@@ -164,61 +377,88 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. Modal Popup Logic
     const modal = document.getElementById('contactModal');
-    const ctaButtons = document.querySelectorAll('.cta-link-main');
+    const ctaButtons = document.querySelectorAll('a[href="#contact"], .cta-link-main[data-modal-trigger="true"]');
     const closeModal = document.getElementById('closeModal');
     const modalFormArea = document.getElementById('modalFormArea');
+    const modalFormAreaStep2 = document.getElementById('modalFormAreaStep2');
     const applicationForm = document.getElementById('applicationForm');
+    const applicationFormStep2 = document.getElementById('applicationFormStep2');
+    const submitBtn = document.getElementById('submitBtn');
+    const smsOptionStep2 = document.getElementById('smsOptionStep2');
+    const planOptionDivider = document.getElementById('planOptionDivider');
+    const planOptionRow = document.getElementById('planOptionRow');
     const successMessage = document.getElementById('successMessage');
     const closeSuccessBtn = document.getElementById('closeSuccess');
+    let resetModalTimer = null;
 
     if (modal) {
+        function openModal() {
+            if (resetModalTimer) {
+                clearTimeout(resetModalTimer);
+                resetModalTimer = null;
+            }
+            modal.classList.add('is-active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModalAndReset() {
+            modal.classList.remove('is-active');
+            document.body.style.overflow = '';
+            resetModal();
+        }
+
         // Open Modal
         ctaButtons.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                modal.classList.add('is-active');
-                document.body.style.overflow = 'hidden'; // Prevent scroll
+                openModal();
             });
         });
 
         // Close Modal (Close X)
-        closeModal?.addEventListener('click', () => {
-            modal.classList.remove('is-active');
-            document.body.style.overflow = ''; // Restore scroll
-            resetModal();
-        });
+        closeModal?.addEventListener('click', closeModalAndReset);
 
         // Close Modal (Overlay Click)
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
-                modal.classList.remove('is-active');
-                document.body.style.overflow = '';
-                resetModal();
+                closeModalAndReset();
             }
         });
 
         // Close Modal (Success Message Close)
-        closeSuccessBtn?.addEventListener('click', () => {
-            modal.classList.remove('is-active');
-            document.body.style.overflow = '';
-            resetModal();
-        });
+        closeSuccessBtn?.addEventListener('click', closeModalAndReset);
 
         function resetModal() {
-            setTimeout(() => {
+            resetModalTimer = window.setTimeout(() => {
                 if (modalFormArea) modalFormArea.style.display = 'block';
+                if (modalFormAreaStep2) modalFormAreaStep2.style.display = 'none';
                 if (successMessage) successMessage.style.display = 'none';
-                applicationForm.reset();
-                applicationForm.querySelectorAll('.form-group').forEach(group => group.classList.remove('has-error'));
+                if (submitBtn) {
+                    submitBtn.classList.remove('loading');
+                    submitBtn.disabled = false;
+                }
+                applicationForm?.reset();
+                applicationFormStep2?.reset();
+                applicationForm?.querySelectorAll('.form-group').forEach(group => group.classList.remove('has-error'));
+                applicationFormStep2?.querySelectorAll('.form-group').forEach(group => group.classList.remove('has-error'));
+                updatePlanOptionSummary();
+                resetModalTimer = null;
             }, 500); // Wait for transition out
         }
 
-        // Form Submit
-        applicationForm?.addEventListener('submit', (e) => {
-            e.preventDefault();
+        function updatePlanOptionSummary() {
+            const isChecked = Boolean(smsOptionStep2?.checked);
+            if (planOptionDivider) {
+                planOptionDivider.style.display = isChecked ? 'block' : 'none';
+            }
+            if (planOptionRow) {
+                planOptionRow.style.display = isChecked ? 'flex' : 'none';
+            }
+        }
 
+        function validateModalForm(form, termsId) {
             let isValid = true;
-            const inputs = applicationForm.querySelectorAll('input[required]');
+            const inputs = form.querySelectorAll('input[required]');
 
             inputs.forEach(input => {
                 const group = input.closest('.form-group');
@@ -230,17 +470,152 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Check terms checkbox
-            const terms = document.getElementById('terms');
-            if (terms && !terms.checked) {
-                isValid = false;
+            if (termsId) {
+                const terms = document.getElementById(termsId);
+                if (terms && !terms.checked) {
+                    isValid = false;
+                }
             }
 
-            if (isValid) {
-                // Simulate loading or transition
-                if (modalFormArea) modalFormArea.style.display = 'none';
+            return isValid;
+        }
+
+        applicationForm?.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            if (validateModalForm(applicationForm)) {
+                if (submitBtn) {
+                    submitBtn.classList.add('loading');
+                    submitBtn.disabled = true;
+                }
+
+                window.setTimeout(() => {
+                    if (submitBtn) {
+                        submitBtn.classList.remove('loading');
+                        submitBtn.disabled = false;
+                    }
+                    if (smsOptionStep2) {
+                        smsOptionStep2.checked = false;
+                    }
+                    applicationFormStep2?.reset();
+                    updatePlanOptionSummary();
+                    if (modalFormArea) modalFormArea.style.display = 'none';
+                    if (modalFormAreaStep2) modalFormAreaStep2.style.display = 'block';
+                }, 3000);
+            }
+        });
+
+        applicationFormStep2?.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            if (validateModalForm(applicationFormStep2, 'termsStep2')) {
+                if (modalFormAreaStep2) modalFormAreaStep2.style.display = 'none';
                 if (successMessage) successMessage.style.display = 'block';
             }
+        });
+
+        smsOptionStep2?.addEventListener('change', updatePlanOptionSummary);
+        updatePlanOptionSummary();
+    }
+
+    // 6. Dynamic Count-up for Main Visual
+    const dynamicNum = document.getElementById('dynamic-num');
+    if (dynamicNum) {
+        const sequence = ['3', '4', '5', '6', '7', '8', '9', '∞'];
+        let currentIndex = 0;
+
+        const updateNum = () => {
+            if (currentIndex < sequence.length) {
+                dynamicNum.textContent = sequence[currentIndex];
+                currentIndex++;
+
+                if (currentIndex < sequence.length) {
+                    // 序盤の切り替えを段階ごとに調整
+                    // 2→3(1.34秒)、3→4(0.745秒)、4→5(0.52秒)、5→6(0.2秒)、6→7(0.1秒)、7→8以降(0.1秒)
+                    let delay = 1340;
+                    if (currentIndex === 1) {
+                        delay = 745;
+                    } else if (currentIndex === 2) {
+                        delay = 520;
+                    } else if (currentIndex === 3) {
+                        delay = 200;
+                    } else if (currentIndex === 4) {
+                        delay = 100;
+                    } else if (currentIndex >= 5) {
+                        delay = 100;
+                    }
+                    setTimeout(updateNum, delay);
+                }
+            }
+        };
+
+        // Start after the initial FV entrance animation (Wait 3.5 seconds)
+        setTimeout(updateNum, 3500);
+    }
+
+    // 7. Floating Button Visibility Logic
+    const floatBtn = document.getElementById('floatBtn');
+    const featuresSection = document.getElementById('features-section');
+
+    if (floatBtn && featuresSection) {
+        window.addEventListener('scroll', () => {
+            const featuresPos = featuresSection.offsetTop - 300; // Show a bit before reaching the section
+            if (window.scrollY > featuresPos) {
+                floatBtn.classList.add('is-active');
+            } else {
+                floatBtn.classList.remove('is-active');
+            }
+        });
+
+        // Smooth scroll for float button (using standard link behavior is fine but ensuring smooth)
+        floatBtn.addEventListener('click', (e) => {
+            const targetId = floatBtn.getAttribute('href');
+            if (targetId.startsWith('#')) {
+                e.preventDefault();
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    targetEl.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    }
+    // 8. Auto-update Current Date for Status Bar
+    const dateEl = document.getElementById('current-date');
+    if (dateEl) {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = now.getMonth() + 1;
+        const date = now.getDate();
+        dateEl.textContent = `${year}/${month}/${date}`;
+    }
+
+    // 9. Plan Toggle Logic
+    const planToggle = document.getElementById('planToggle');
+    const mainPrice = document.getElementById('main-price');
+    const taxPrice = document.getElementById('tax-price');
+    const planLabel = document.getElementById('plan-label');
+    const toggleBtns = document.querySelectorAll('.toggle-btn');
+    const togglePill = document.querySelector('.toggle-pill');
+
+    if (planToggle) {
+        toggleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const plan = btn.dataset.plan;
+                toggleBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                if (plan === 'yearly') {
+                    togglePill.style.transform = 'translateX(100%)';
+                    mainPrice.innerHTML = '¥29,800';
+                    taxPrice.textContent = '※税込 32,780円';
+                    planLabel.textContent = '年額';
+                } else {
+                    togglePill.style.transform = 'translateX(0)';
+                    mainPrice.innerHTML = '¥2,980';
+                    taxPrice.textContent = '※税込 3,278円';
+                    planLabel.textContent = '月額';
+                }
+            });
         });
     }
 });
