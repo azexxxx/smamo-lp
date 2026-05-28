@@ -6,8 +6,8 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: transparent; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
-    #__bundler_loading { position: fixed; bottom: 20px; right: 20px; font: 13px/1.4 -apple-system, BlinkMacSystemFont, sans-serif; color: #666; background: #fff; padding: 8px 14px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.12); z-index: 10000; }
-    #__bundler_thumbnail { position: fixed; inset: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: transparent; z-index: 9999; }
+    #__bundler_loading { position: absolute; right: 12px; bottom: 12px; font: 12px/1.4 -apple-system, BlinkMacSystemFont, sans-serif; color: #666; background: rgba(255,255,255,0.92); padding: 6px 10px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.12); z-index: 10; }
+    #__bundler_thumbnail { position: absolute; inset: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: transparent; z-index: 9; pointer-events: none; }
     #__bundler_thumbnail svg { width: 100%; height: 100%; object-fit: contain; }
     #__bundler_placeholder { color: #999; font-size: 14px; }
   </style>
@@ -158,14 +158,15 @@ document.addEventListener('DOMContentLoaded', async function() {
           '}' +
         '});' +
       '}' +
-      'hidePlaybackBar();' +
-      'scrubDarkBackgrounds();' +
-      'shrinkCaptions();' +
-      'var mo=new MutationObserver(function(){hidePlaybackBar();scrubDarkBackgrounds();shrinkCaptions();});' +
-      'mo.observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:[\"style\"]});' +
-      'window.addEventListener(\"load\",function(){hidePlaybackBar();scrubDarkBackgrounds();shrinkCaptions();});' +
-      'setTimeout(function(){hidePlaybackBar();scrubDarkBackgrounds();shrinkCaptions();},300);' +
-      'setTimeout(function(){hidePlaybackBar();scrubDarkBackgrounds();shrinkCaptions();},1000);' +
+      'function refreshTweaks(){hidePlaybackBar();scrubDarkBackgrounds();shrinkCaptions();}' +
+      'refreshTweaks();' +
+      'window.addEventListener(\"load\",refreshTweaks);' +
+      'requestAnimationFrame(refreshTweaks);' +
+      'setTimeout(refreshTweaks,120);' +
+      'setTimeout(refreshTweaks,300);' +
+      'setTimeout(refreshTweaks,700);' +
+      'setTimeout(refreshTweaks,1200);' +
+      'setTimeout(refreshTweaks,2000);' +
     '})();</' + 'script>';
     // Inject after <head> so the DOCTYPE stays first; prepending the script
     // would push the parser into quirks mode. DOMParser always emits a <head>
@@ -178,12 +179,14 @@ document.addEventListener('DOMContentLoaded', async function() {
       template = template.slice(0, i) + resourceScript + hideControlsScript + template.slice(i);
     }
 
-    // Parse the template and swap the root element. Scripts inserted via
-    // DOMParser/replaceWith are inert per spec — re-create each with
+    // Parse the template and replace head/body content without swapping the
+    // entire documentElement. That is lighter for mobile webviews.
+    // Scripts inserted via innerHTML are inert per spec — re-create each with
     // createElement so they execute, awaiting onload for src scripts to
     // preserve ordering (React before ReactDOM before Babel before text/babel).
     const doc = new DOMParser().parseFromString(template, 'text/html');
-    document.documentElement.replaceWith(doc.documentElement);
+    document.head.innerHTML = doc.head.innerHTML;
+    document.body.innerHTML = doc.body.innerHTML;
     const dead = Array.from(document.scripts);
     for (const old of dead) {
       const s = document.createElement('script');
@@ -217,6 +220,10 @@ document.addEventListener('DOMContentLoaded', async function() {
       old.replaceWith(s);
       if (p) await p;
     }
+    const thumb = document.getElementById('__bundler_thumbnail');
+    if (thumb) thumb.remove();
+    const loadingEl = document.getElementById('__bundler_loading');
+    if (loadingEl) loadingEl.remove();
     // Babel standalone auto-transforms type=text/babel on DOMContentLoaded,
     // which fired before we swapped the document. Trigger manually if present.
     if (window.Babel && typeof window.Babel.transformScriptTags === 'function') {
