@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- SEO Meta Tags -->
+    <title>SMAMO（スマモ） | スマホの中に、もうひとつのスマホ。</title>
+    <meta name="description"
+        content="見た目は1台、中身は2台。LINEも写真も通知も、誰にも気づかれない秘密のスマホ SMAMO（スマモ）。いつもスマホの中にアプリをイントールするだけでもうひとつのスマホが見れる、世界初のアプリ内スマートフォンです。">
+    <meta name="keywords" content="SMAMO,スマモ,スマホ,2台持ち,プライバシー保護,浮気対策,身バレ防止,セキュリティ">
+
+    <!-- OGP Tags -->
+    <meta property="og:site_name" content="SMAMO（スマモ）">
+    <meta property="og:title" content="SMAMO（スマモ） | スマホの中に、もうひとつのスマホ。">
+    <meta property="og:description"
+        content="見た目は1台、中身は2台。LINEも写真も通知も、誰にも気づかれない秘密のスマホ SMAMO（スマモ）。いつもスマホの中にアプリをイントールするだけでもうひとつのスマホが見れる、世界初のアプリ内スマートフォンです。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smamo.jp/">
+    <meta property="og:image" content="https://smamo.jp/img/ogp.jpg">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <!-- Stylesheets & Fonts -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="header-logo">
+                <img src="img/header-logo.png" alt="SMAMO" class="logo-img">
+            </div>
+            <div class="header-nav">
+                <a href="#price-section" class="cta-link-main"><img src="img/header-btn.png" alt="今すぐ無料体験" class="header-cta-img"></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <!-- 1. Mein Text -->
+                    <div class="hero-item mein-text-wrap hero-stage-1">
+                        <h1 class="mein-text">見た目は<span class="num">1</span>台、<br>中身は<span class="num" id="dynamic-num">2</span>台。</h1>
+                    </div>
+
+                    <!-- 2. Main Logo -->
+                    <div class="hero-item logo-wrap hero-stage-1">
+                        <p class="logo-tagline">1台2役 世界初のアプリ内スマートフォン</p>
+                        <img src="img/logo.png" alt="SMAMO" class="main-logo-img">
+                    </div>
+
+                    <!-- 3. CTA (Width 100%) -->
+                    <div class="hero-item cta-wrap hero-stage-2">
+                        <div class="cta-inner">
+                            <img src="img/cta-btn-bubble.png" alt="20台限定 3日間無料体験実施中" class="cta-bubble">
+                            <a href="#price-section" class="cta-link-main">
+                                <img src="img/cta-btn.png" alt="今すぐ無料体験" class="cta-img-main">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 4. Sub Text -->
+                    <div class="hero-item sub-text-wrap hero-stage-2">
+                        <img src="img/sub-text.png" alt="別のLINEも写真も通知も、誰にも気づかれない。" class="sub-text-img">
+                    </div>
+
+                </div>
+
+                <div class="hero-visual hero-stage-3">
+                    <div class="visual-info">
+                        <div class="phone-wrap">
+                            <p class="phone-tagline">あなたのiPhoneの中に、もう1台。</p>
+                            <iframe
+                                class="phone-img"
+                                src="fv-animation/hero_standalone.html"
+                                title="SMAMOの操作イメージアニメーション"
+                                loading="eager"
+                                scrolling="no"
+                                allow="autoplay; fullscreen">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="availability-board-wrap hero-stage-3">
+                <section class="availability-board" aria-label="サーバー空き状況">
+                    <div class="availability-board__header">
+                        <div>
+                            <h2 class="availability-board__title">現在即提供な台数：残り<span class="availability-board__count">15台</span></h2>
+                        </div>
+                        <div class="availability-board__summary">
+                            <span class="availability-pill is-live">稼働中</span>
+                        </div>
+                    </div>
+
+                    <div class="availability-board__subhead">
+                        <div class="availability-board__legend" aria-hidden="true">
+                            <span><i class="legend-dot is-used"></i> 利用中</span>
+                            <span><i class="legend-dot is-open"></i> 空きあり</span>
+                        </div>
+                        <p class="availability-board__meta">日本サーバー：3 ｜ 海外サーバー：1</p>
+                    </div>
+
+                    <div class="availability-board__grid">
+                        <article class="server-card">
+                            <div class="server-card__head">
+                                <div>
+                                    <p class="server-card__region">JP / TOKYO</p>
+                                    <h3 class="server-card__name">Server 03</h3>
+                                </div>
+                                <div class="server-card__status">
+                                    <span class="server-card__status-label">空き</span>
+                                    <strong><span class="count-open">8</span> / 20</strong>
+                                </div>
+                            </div>
+                            <div class="server-slots" aria-label="東京リージョン サーバー1の空き状況">
+                                <span class="slot is-open"></span><span class="slot is-open"></span><span class="slot is-open"></span><span class="slot is-open"></span><span class="slot is-open"></span>
+                                <span class="slot is-open"></span><span class="slot is-open"></span><span class="slot is-open"></span><span class="slot is-full"></span><span class="slot is-full"></span>
+                                <span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span>
+                                <span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span>
+                            </div>
+                        </article>
+
+                        <article class="server-card">
+                            <div class="server-card__head">
+                                <div>
+                                    <p class="server-card__region">JP / TOKYO</p>
+                                    <h3 class="server-card__name">Server 02</h3>
+                                </div>
+                                <div class="server-card__status">
+                                    <span class="server-card__status-label">満枠</span>
+                                    <strong class="is-full">20 / 20</strong>
+                                </div>
+                            </div>
+                            <div class="server-slots" aria-label="東京リージョン サーバー2の空き状況">
+                                <span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span>
+                                <span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span>
+                                <span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span>
+                                <span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span>
+                            </div>
+                        </article>
+
+                        <article class="server-card">
+                            <div class="server-card__head">
+                                <div>
+                                    <p class="server-card__region">JP / TOKYO</p>
+                                    <h3 class="server-card__name">Server 01</h3>
+                                </div>
+                                <div class="server-card__status">
+                                    <span class="server-card__status-label">満枠</span>
+                                    <strong class="is-full">20 / 20</strong>
+                                </div>
+                            </div>
+                            <div class="server-slots" aria-label="東京リージョン サーバー3の空き状況">
+                                <span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span>
+                                <span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span>
+                                <span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span>
+                                <span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span>
+                            </div>
+                        </article>
+
+                        <article class="server-card server-card--overseas">
+                            <div class="server-card__head">
+                                <div>
+                                    <p class="server-card__region">GLOBAL</p>
+                                    <h3 class="server-card__name">Server 04</h3>
+                                </div>
+                                <div class="server-card__status">
+                                    <span class="server-card__status-label">空き</span>
+                                    <strong><span class="count-open">7</span> / 20</strong>
+                                </div>
+                            </div>
+                            <div class="server-slots" aria-label="海外リージョン サーバー1の空き状況">
+                                <span class="slot is-open"></span><span class="slot is-open"></span><span class="slot is-open"></span><span class="slot is-open"></span><span class="slot is-open"></span>
+                                <span class="slot is-open"></span><span class="slot is-open"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span>
+                                <span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span>
+                                <span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span><span class="slot is-full"></span>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+
+            <div class="status-bar-wrap status-bar-wrap--after-board hero-stage-3">
+                <section class="recent-log" aria-label="最近の申込">
+                    <div class="recent-log__header">
+                        <h2 class="recent-log__title">最近の申込状況</h2>
+                    </div>
+
+                    <div class="recent-log__list">
+                        <article class="recent-log__item">
+                            <p class="recent-log__text"><span class="recent-log__name">I様</span> <span class="recent-log__server">TOKYO Server</span> <span class="recent-log__plan">月額プラン</span></p>
+                            <time class="recent-log__time" datetime="P1D">1日前</time>
+                        </article>
+
+                        <article class="recent-log__item">
+                            <p class="recent-log__text"><span class="recent-log__name">K様</span> <span class="recent-log__server">TOKYO Server</span> <span class="recent-log__plan recent-log__plan--annual">年払いプラン</span></p>
+                            <time class="recent-log__time" datetime="P2D">2日前</time>
+                        </article>
+
+                        <article class="recent-log__item">
+                            <p class="recent-log__text"><span class="recent-log__name">A様</span> <span class="recent-log__server">TOKYO Server</span> <span class="recent-log__plan recent-log__plan--term">2年契約</span></p>
+                            <time class="recent-log__time" datetime="P3D">3日前</time>
+                        </article>
+                    </div>
+                </section>
+            </div>
+            <!-- Logo Slider -->
+            <div class="logo-slider">
+                <div class="slider-track">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <!-- Second part for infinite double loop -->
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <!-- Third part for seamless transition -->
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                    <img src="img/slider-logo.png" alt="SMAMO Logo">
+                </div>
+            </div>
+
+            <div class="hero-bg"></div>
+        </section>
+
+        <!-- Survey Section -->
+        <section id="survey-section" class="survey-section-wrap">
+            <div class="container">
+                <div class="survey-header fade-in">
+                    <p class="survey-intro">本音で答えてください。</p>
+                </div>
+
+                <div class="survey-inner fade-in">
+                    <div class="survey-q-title">
+                        <span class="q-icon">Q</span>
+                        <h2 class="survey-question">2台持ちの人、どう思いますか？</h2>
+                    </div>
+
+                    <div class="survey-carousel-container">
+                        <!-- Click/Hover Triggers -->
+                        <div class="nav-trigger-zone prev" id="surveyZonePrev"></div>
+                        <div class="nav-trigger-zone next" id="surveyZoneNext"></div>
+
+                        <div class="survey-carousel-wrap">
+                            <div class="survey-carousel-track" id="surveyCarousel">
+                                <div class="survey-card active">
+                                    <img src="img/q_1.png" alt="浮気してる？" class="survey-img" draggable="false">
+                                </div>
+                                <div class="survey-card">
+                                    <img src="img/q_2.png" alt="なんかやってそう" class="survey-img" draggable="false">
+                                </div>
+                                <div class="survey-card">
+                                    <img src="img/q_3.png" alt="夜職かな？" class="survey-img" draggable="false">
+                                </div>
+                                <div class="survey-card">
+                                    <img src="img/q_4.png" alt="信用できない" class="survey-img" draggable="false">
+                                </div>
+                                <div class="survey-card">
+                                    <img src="img/q_5.png" alt="闇バイト？" class="survey-img" draggable="false">
+                                </div>
+                                <div class="survey-card">
+                                    <img src="img/q_6.png" alt="二重生活？" class="survey-img" draggable="false">
+                                </div>
+                                <div class="survey-card">
+                                    <img src="img/q_7.png" alt="詐欺師？" class="survey-img" draggable="false">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Controls -->
+                        <button class="carousel-btn prev" id="surveyPrev"><i class="arrow-left"></i></button>
+                        <button class="carousel-btn next" id="surveyNext"><i class="arrow-right"></i></button>
+
+                        <!-- Indicators -->
+                        <div class="carousel-dots" id="surveyDots">
+                            <span class="dot active" data-index="0"></span>
+                            <span class="dot" data-index="1"></span>
+                            <span class="dot" data-index="2"></span>
+                            <span class="dot" data-index="3"></span>
+                            <span class="dot" data-index="4"></span>
+                            <span class="dot" data-index="5"></span>
+                            <span class="dot" data-index="6"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section id="solution-section" class="solution-section">
+            <div class="container">
+                <div class="solution-intro-area">
+                    <h3 class="solution-main-intro fade-in">2台持っているだけで、<br class="sp-only"><span
+                            class="highlight-invert">疑われる</span>。</h3>
+                </div>
+            </div>
+
+            <!-- Floating Bubbles Area (Full Width) -->
+            <div class="bubbles-area-scroll">
+                <div class="bubble-row upper">
+                    <div class="bubble-track-left">
+                        <div class="bubble-set">
+                            <img src="img/bubble_1.png" alt="bubble">
+                            <img src="img/bubble_2.png" alt="bubble">
+                            <img src="img/bubble_3.png" alt="bubble">
+                            <img src="img/bubble_4.png" alt="bubble">
+                            <img src="img/bubble_5.png" alt="bubble">
+                        </div>
+                        <div class="bubble-set">
+                            <img src="img/bubble_1.png" alt="bubble">
+                            <img src="img/bubble_2.png" alt="bubble">
+                            <img src="img/bubble_3.png" alt="bubble">
+                            <img src="img/bubble_4.png" alt="bubble">
+                            <img src="img/bubble_5.png" alt="bubble">
+                        </div>
+                    </div>
+                </div>
+                <div class="bubble-row lower">
+                    <div class="bubble-track-right">
+                        <div class="bubble-set">
+                            <img src="img/bubble_6.png" alt="bubble">
+                            <img src="img/bubble_7.png" alt="bubble">
+                            <img src="img/bubble_8.png" alt="bubble">
+                            <img src="img/bubble_9.png" alt="bubble">
+                            <img src="img/bubble_10.png" alt="bubble">
+                        </div>
+                        <div class="bubble-set">
+                            <img src="img/bubble_6.png" alt="bubble">
+                            <img src="img/bubble_7.png" alt="bubble">
+                            <img src="img/bubble_8.png" alt="bubble">
+                            <img src="img/bubble_9.png" alt="bubble">
+                            <img src="img/bubble_10.png" alt="bubble">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="solution-declaration fade-in" style="animation-delay: 0.5s;">
+                    <h2 class="declaration-text"><span class="reveal-text">だったら、<br class="sp-only"><span
+                                class="highlight-blue">中身だけ2台</span>にすればいい。</span></h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features (What SMAMO can do) Section -->
+        <section id="features-section" class="features-section">
+            <div class="container">
+                <div class="features-header fade-in">
+                    <h2 class="section-title-white"><span class="reveal-text">SMAMOでできること</span>
+                    </h2>
+                    <p class="section-subtitle">SMAMO'S FEATURES</p>
+                </div>
+
+                <div class="features-list">
+                    <!-- Feature 01 (Highlighted: Image Left, Text Right) -->
+                    <div class="feature-item feature-highlight fade-in">
+                        <div class="feature-visual">
+                            <img src="img/feature_1.jpg" alt="Feature 01" class="feature-img-main">
+                        </div>
+                        <div class="feature-text-content">
+                            <span class="feature-num">01 /</span>
+                            <h3 class="feature-title">アプリの中に、もう1台 </h3>
+                            <p class="feature-desc">アプリを開けばすぐ使える。端末代も充電もいらない、<br class="pc-only">新品のAndroid環境が手に入ります。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 02 (Highlighted: Text Left, Image Right) -->
+                    <div class="feature-item feature-highlight feature-reverse fade-in">
+                        <div class="feature-visual">
+                            <img src="img/feature_2.jpg" alt="Feature 02" class="feature-img-main">
+                        </div>
+                        <div class="feature-text-content">
+                            <span class="feature-num">02 /</span>
+                            <h3 class="feature-title">アカウント、いくつでも</h3>
+                            <p class="feature-desc">LINE・Telegram・Signalなど。<br class="pc-only">電話認証が必要なアプリも、すっきり分けて使えます。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 03 (Highlighted: Image Left, Text Right) -->
+                    <div class="feature-item feature-highlight fade-in">
+                        <div class="feature-visual">
+                            <img src="img/feature_3.jpg" alt="Feature 03" class="feature-img-main">
+                        </div>
+                        <div class="feature-text-content">
+                            <span class="feature-num">03 /</span>
+                            <h3 class="feature-title">マルチデバイス対応</h3>
+                            <p class="feature-desc">手元にスマホがなくても大丈夫。<br class="pc-only">PCや別のスマホ、タブレットからも2台目が使えます。</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 04 (Highlighted: Text Left, Image Right) -->
+                    <div class="feature-item feature-highlight feature-reverse fade-in">
+                        <div class="feature-visual">
+                            <img src="img/feature_4.jpg" alt="Feature 04" class="feature-img-main">
+                        </div>
+                        <div class="feature-text-content">
+                            <span class="feature-num">04 /</span>
+                            <h3 class="feature-title">新しい電話番号も、<br class="pc-only">もうひとつ。</h3>
+                            <p class="feature-desc">本番号と分けた秘密の連絡先が手に入ります。<br class="pc-only">（※通話不可）</p>
+                        </div>
+                    </div>
+                    <!-- Feature 05 (Highlighted: Image Left, Text Right) -->
+                    <div class="feature-item feature-highlight fade-in">
+                        <div class="feature-visual">
+                            <img src="img/feature_5.jpg" alt="Feature 05" class="feature-img-main">
+                        </div>
+                        <div class="feature-text-content">
+                            <span class="feature-num">05 /</span>
+                            <h3 class="feature-title">スマホをなくしても、<br class="pc-only">データは残る。</h3>
+                            <p class="feature-desc">データやアカウントはすべてクラウドで管理。<br
+                                    class="pc-only">スマホを紛失・破損しても、別のスマホやPCからアクセス可能。SMAMOで作った環境がすぐに使えます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Missions (Privacy & Security) Section (Using existing styles) -->
+        <section id="mission-section" class="features-section" style="padding-top:0;">
+            <div class="container">
+                <div class="features-header fade-in">
+                    <h2 class="section-title-white"><span class="reveal-text">SMAMOの4つのミッション</span></h2>
+                    <p class="section-subtitle">あなたの秘密を、絶対に守り抜く。</p>
+                </div>
+
+                <div class="features-list">
+                    <!-- Mission 01 -->
+                    <div class="feature-item fade-in">
+                        <div class="feature-visual">
+                            <img src="img/feature_6.jpg" alt="Mission 01" class="feature-img-main">
+                        </div>
+                        <div class="feature-text-content">
+                            <span class="feature-num">Mission 01</span>
+                            <h3 class="feature-title">見た目でばれないアイコン変装</h3>
+                            <p class="feature-desc">
+                                アプリアイコンは、好きなデザインに変装できます。電卓・メモ帳・ブラウザ…ホーム画面のどこに並んでも、SMAMOの存在は、誰にもバレません。</p>
+                        </div>
+                    </div>
+
+                    <!-- Mission 02 -->
+                    <div class="feature-item fade-in">
+                        <div class="feature-visual">
+                            <img src="img/feature_7.jpg" alt="Mission 02" class="feature-img-main">
+                        </div>
+                        <div class="feature-text-content">
+                            <span class="feature-num">Mission 02</span>
+                            <h3 class="feature-title">二重認証で入口をカモフラージュ</h3>
+                            <p class="feature-desc">
+                                起動しても表示されるのは、電卓・ブラウザ・地図など、ごく普通のアプリ画面。契約者だけが知る操作でログインするから、開かれてもSMAMOだとバレません。</p>
+                        </div>
+                    </div>
+
+                    <!-- Mission 03 -->
+                    <div class="feature-item fade-in">
+                        <div class="feature-visual">
+                            <img src="img/feature_8.jpg" alt="Mission 03" class="feature-img-main">
+                        </div>
+                        <div class="feature-text-content">
+                            <span class="feature-num">Mission 03</span>
+                            <h3 class="feature-title">スマホを傾けジャイロ隠し</h3>
+                            <p class="feature-desc">危ない時は、スマホをサッと傾けるだけ。画面は瞬時にいつものホーム画面に切り替わり、何事もなかったかのように、あなたの秘密を守ります。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Mission 04 -->
+                    <div class="feature-item fade-in">
+                        <div class="feature-visual">
+                            <img src="img/feature_9.jpg" alt="Mission 04" class="feature-img-main">
+                        </div>
+                        <div class="feature-text-content">
+                            <span class="feature-num">Mission 04</span>
+                            <h3 class="feature-title">あなたを守る暗号化通信</h3>
+                            <p class="feature-desc">通信はP2Pで暗号化、傍受されても解読不可。
+                                位置情報は別の場所。SMAMOは、あなたの行動を一切記録しません。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Study (Solving Problems) Section -->
+        <section id="case-study-section" class="case-study-section">
+            <div class="container">
+                <div class="case-header fade-in">
+                    <h2 class="section-title"><span class="reveal-text">スマモがあれば、<br class="sp-only">こんな場面も安心。</span>
+                    </h2>
+                    <p class="section-subtitle-dark">USE CASE</p>
+                </div>
+            </div>
+
+            <!-- Carousel out of container for full width -->
+            <div class="case-carousel-wrapper fade-in">
+                <!-- Click/Hover Triggers -->
+                <div class="nav-trigger-zone prev" id="caseZonePrev"></div>
+                <div class="nav-trigger-zone next" id="caseZoneNext"></div>
+
+                <div class="case-carousel" id="caseCarousel">
+                    <!-- Case 01 -->
+                    <div class="case-slide active">
+                        <img src="img/case_1.png" alt="Case 01" class="case-img" id="caseImg1">
+                    </div>
+                    <!-- Case 02 -->
+                    <div class="case-slide">
+                        <img src="img/case_2.png" alt="Case 02" class="case-img" id="caseImg2">
+                    </div>
+                    <!-- Case 03 -->
+                    <div class="case-slide">
+                        <img src="img/case_3.png" alt="Case 03" class="case-img" id="caseImg3">
+                    </div>
+                    <!-- Case 04 -->
+                    <div class="case-slide">
+                        <img src="img/case_4.png" alt="Case 04" class="case-img" id="caseImg4">
+                    </div>
+                    <!-- Case 05 -->
+                    <div class="case-slide">
+                        <img src="img/case_5.png" alt="Case 05" class="case-img" id="caseImg5">
+                    </div>
+                    <!-- Case 06 -->
+                    <div class="case-slide">
+                        <img src="img/case_6.png" alt="Case 06" class="case-img" id="caseImg6">
+                    </div>
+                    <!-- Case 07 -->
+                    <div class="case-slide">
+                        <img src="img/case_7.png" alt="Case 07" class="case-img" id="caseImg7">
+                    </div>
+                    <!-- Case 08 -->
+                    <div class="case-slide">
+                        <img src="img/case_8.png" alt="Case 08" class="case-img" id="caseImg8">
+                    </div>
+                    <!-- Case 09 -->
+                    <div class="case-slide">
+                        <img src="img/case_9.png" alt="Case 09" class="case-img" id="caseImg9">
+                    </div>
+                    <!-- Case 10 -->
+                    <div class="case-slide">
+                        <img src="img/case_10.png" alt="Case 10" class="case-img" id="caseImg10">
+                    </div>
+                    <!-- Case 11 -->
+                    <div class="case-slide">
+                        <img src="img/case_11.png" alt="Case 11" class="case-img" id="caseImg11">
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <button class="carousel-btn prev" id="casePrev"><i class="arrow-left"></i></button>
+                <button class="carousel-btn next" id="caseNext"><i class="arrow-right"></i></button>
+
+                <!-- Indicators -->
+                <div class="carousel-dots" id="caseDots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                    <span class="dot" data-index="3"></span>
+                    <span class="dot" data-index="4"></span>
+                    <span class="dot" data-index="5"></span>
+                    <span class="dot" data-index="6"></span>
+                    <span class="dot" data-index="7"></span>
+                    <span class="dot" data-index="8"></span>
+                    <span class="dot" data-index="9"></span>
+                    <span class="dot" data-index="10"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials-section" class="testimonials-section">
+            <div class="container">
+                <div class="testimonials-header fade-in">
+                    <h2 class="section-title"><span class="reveal-text">実際にスマモを使っている<br>お客様の声</span></h2>
+                    <p class="section-subtitle-dark">TESTIMONIALS</p>
+                </div>
+
+                <div class="testimonials-grid">
+                    <!-- User 01 -->
+                    <div class="testimonial-card fade-in">
+                        <h3 class="card-title">土日の通知ストレスがなくなりました</h3>
+                        <div class="rating">
+                            <img src="img/star.svg" alt="star" class="star-icon">
+                            <img src="img/star.svg" alt="star" class="star-icon">
+                            <img src="img/star.svg" alt="star" class="star-icon">
+                            <img src="img/star.svg" alt="star" class="star-icon">
+                            <img src="img/star.svg" alt="star" class="star-icon">
+                            <span class="rating-num">5.0</span>
+                        </div>
+                        <div class="user-meta">
+                            <img src="img/user_1.png" alt="user" class="user-icon">
+                            <span class="user-info-text">会社員 T.Kさん (34歳・男性)</span>
+                        </div>
+                        <p class="card-text">
+                            休みの日にくる通知やメンションが正直ストレスでした。上司やチームにも相談しましたが改善してくれないし、かといって緊急時の連絡は取れるようにしなきゃいけない。そんなときに会社がスマモを導入してくれました。お陰で自分のタイミングでメッセージを確認できるので、ストレスが軽減されました。
+                        </p>
+                    </div>
+
+                    <!-- User 02 -->
+                    <div class="testimonial-card fade-in">
+                        <h3 class="card-title">2台持ちやめたら思ったより楽だった</h3>
+                        <div class="rating">
+                            <img src="img/star.svg" alt="star" class="star-icon">
+                            <img src="img/star.svg" alt="star" class="star-icon">
+                            <img src="img/star.svg" alt="star" class="star-icon">
+                            <img src="img/star.svg" alt="star" class="star-icon">
+                            <img src="img/star.svg" alt="star" class="star-icon">
+                            <span class="rating-num">5.0</span>
+                        </div>
+                        <div class="user-meta">
+                            <img src="img/user_3.png" alt="user" class="user-icon">
+                            <span class="user-info-text">会社経営 H.Yさん (42歳・男性)</span>
+                        </div>
+                        <p class="card-text">
+                            正直、最初は「こういうアプリってちょっと怪しいかな？」と思ってました。2台持ちが面倒だったのは確かなんですが、やっぱり疑われてる感じもあったし、2台目のアプリ履歴とかも注意しなきゃいけないのがストレスで試してみました。使ってみたら安心感が段違いで、もう辞めれないと思います。
+                        </p>
+                    </div>
+
+                    <!-- User 03 -->
+                    <div class="testimonial-card fade-in">
+                        <h3 class="card-title">親しい感じが簡単にできるようになった</h3>
+                        <div class="rating">
+                            <img src="img/star.svg" alt="star" class="star-icon">
+                            <img src="img/star.svg" alt="star" class="star-icon">
+                            <img src="img/star.svg" alt="star" class="star-icon">
+                            <img src="img/star.svg" alt="star" class="star-icon">
+                            <img src="img/star.svg" alt="star" class="star-icon">
+                            <span class="rating-num">5.0</span>
+                        </div>
+                        <div class="user-meta">
+                            <img src="img/user_2.png" alt="user" class="user-icon">
+                            <span class="user-info-text">フリーランス M.Sさん (29歳・女性)</span>
+                        </div>
+                        <p class="card-text">
+                            「LINE交換しよー」っていわれたとき、結構イヤイヤ交換することが多かったです。かといって別のSNSだと壁がある感じになる空気も嫌で。スマモを入れてからは、もう一つのLINEのQRをサッと見せれば済むので本当に気楽になりました！
+                        </p>
+                    </div>
+
+                    <!-- User 04 -->
+                    <div class="testimonial-card fade-in">
+                        <h3 class="card-title">セキュリティがすごい</h3>
+                        <div class="rating">
+                            <img src="img/star.svg" alt="star" class="star-icon">
+                            <img src="img/star.svg" alt="star" class="star-icon">
+                            <img src="img/star.svg" alt="star" class="star-icon">
+                            <img src="img/star.svg" alt="star" class="star-icon">
+                            <img src="img/star.svg" alt="star" class="star-icon">
+                            <span class="rating-num">5.0</span>
+                        </div>
+                        <div class="user-meta">
+                            <img src="img/user_4.png" alt="user" class="user-icon">
+                            <span class="user-info-text">IT企業勤務 R.Nさん (38歳・男性)</span>
+                        </div>
+                        <p class="card-text">
+                            まずアプリの入口自体が分かりにくくしてあって、仮に見つかっても初見ではその先に進めない構造になってるんですよね。通信履歴やGPS周りの対策もちゃんと効いているし、直接的なハッキングにも強い。触っていて「これ作った人わかってるな」という安心感があります。あと冗談みたいな話ですが、万が一スマホを誰かに押収されたとしても仲間が別端末からスマモにアクセスできる仕様なので安心しています。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security Section -->
+        <section id="security-section" class="security-section">
+            <div class="container">
+                <div class="security-header fade-in">
+                    <h2 class="section-title-white"><span class="reveal-text">セキュリティ</span></h2>
+                    <p class="section-subtitle">SECURITY</p>
+                    <p class="security-lead">安心・安全にご利用いただけます。<br>あなたのデータは多層防御で保護されています。</p>
+                </div>
+
+                <div class="security-features grid-3col">
+                    <div class="security-item fade-in">
+                        <lord-icon src="https://cdn.lordicon.com/meiqgjvx.json" trigger="loop" delay="2000"
+                            colors="primary:#ffcc00" class="security-item-icon" style="width:80px;height:80px">
+                        </lord-icon>
+                        <h3 class="security-item-title">通信の保護 (P2P / WebRTC)</h3>
+                        <p class="security-item-text">
+                            端末間のやり取りはWebRTCによるP2P暗号化で保護。必要最小限の中継（ネットワーク到達性のためのサーバ等）が入る場合でも、平文が残らない設計です。</p>
+                    </div>
+                    <div class="security-item fade-in">
+                        <lord-icon src="https://cdn.lordicon.com/gbycmzod.json" trigger="loop" delay="2000"
+                            colors="primary:#007aff" class="security-item-icon" style="width:80px;height:80px">
+                        </lord-icon>
+                        <h3 class="security-item-title">海外リージョン (オプション)</h3>
+                        <p class="security-item-text">ご希望に応じてサーバーを海外リージョンへ切替可能。法管轄の異なる地域でデータを保管し、秘匿性と独立性を強化します。</p>
+                    </div>
+                    <div class="security-item fade-in">
+                        <lord-icon src="https://cdn.lordicon.com/oxmjavzr.json" trigger="loop" delay="2000"
+                            colors="primary:#ffffff" class="security-item-icon" style="width:80px;height:80px">
+                        </lord-icon>
+                        <h3 class="security-item-title">プライバシー保護のポリシー</h3>
+                        <p class="security-item-text">弊社では最小限の運用ログのみを扱い、第三者による不正アクセスやデータ漏えいを防ぐ対策を実施しています。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Price Plan Section -->
+        <section id="price-section" class="price-section">
+            <div class="container">
+                <div class="price-header fade-in">
+                    <h2 class="section-title-white"><span class="reveal-text">料金プラン</span></h2>
+                    <p class="section-subtitle">PRICE</p>
+                    <p class="price-intro">ご利用スタイルに合わせて、<br class="sp-only">3つのプランをご用意しています。</p>
+                </div>
+
+                <div class="price-plans-wrap fade-in">
+                    <article class="price-card">
+                        <div class="price-card__top">
+                            <span class="price-card__label">年払いプラン</span>
+                            <span class="price-card__badge">2ヶ月分お得</span>
+                        </div>
+                        <p class="price-card__lead">一括払いで、長く使うほどお得に。</p>
+                        <div class="price-card__main">
+                            <div class="price-card__headline">
+                                <p class="price-card__term">年額</p>
+                                <p class="price-card__price">¥34,800<span class="price-card__unit">/台</span></p>
+                            </div>
+                            <p class="price-card__tax">※税込 ¥38,280</p>
+                        </div>
+                        <div class="price-card__summary">
+                            <div class="price-card__summary-row">
+                                <span>初期費用</span>
+                                <strong>¥33,000（税込）</strong>
+                            </div>
+                            <div class="price-card__summary-row">
+                                <span>初回お支払い</span>
+                                <strong>¥71,280（税込）</strong>
+                            </div>
+                        </div>
+                        <ul class="price-card__features">
+                            <li><img src="img/check.svg" alt="" class="price-card__check" aria-hidden="true">全機能を制限なく利用可</li>
+                            <li><img src="img/check.svg" alt="" class="price-card__check" aria-hidden="true">SMS受信番号あり</li>
+                            <li><img src="img/check.svg" alt="" class="price-card__check" aria-hidden="true">月額プランより年 <span class="price-card__amount">¥7,656</span> お得</li>
+                            <li><img src="img/check.svg" alt="" class="price-card__check" aria-hidden="true">いつでも解約可・解約手数料 <span class="price-card__amount">¥0</span></li>
+                        </ul>
+                        <a href="#contact" class="price-card__cta">年払いプランで申込む</a>
+                    </article>
+
+                    <article class="price-card price-card--featured">
+                        <div class="price-card__top">
+                            <span class="price-card__label">月額プラン</span>
+                            <span class="price-card__badge price-card__badge--blue">おすすめ</span>
+                        </div>
+                        <p class="price-card__lead">最も人気のスタンダードプラン。</p>
+                        <div class="price-card__main">
+                            <div class="price-card__headline">
+                                <p class="price-card__term">月額</p>
+                                <p class="price-card__price">¥3,480<span class="price-card__unit">/台</span></p>
+                            </div>
+                            <p class="price-card__tax">※税込 ¥3,828</p>
+                        </div>
+                        <div class="price-card__summary">
+                            <div class="price-card__summary-row">
+                                <span>初期費用</span>
+                                <strong>¥33,000（税込）</strong>
+                            </div>
+                            <div class="price-card__summary-row">
+                                <span>初回お支払い</span>
+                                <strong>¥36,828（税込）</strong>
+                            </div>
+                        </div>
+                        <ul class="price-card__features">
+                            <li><img src="img/check.svg" alt="" class="price-card__check" aria-hidden="true">全機能を制限なく利用可</li>
+                            <li><img src="img/check.svg" alt="" class="price-card__check" aria-hidden="true">SMS受信番号あり</li>
+                            <li><img src="img/check.svg" alt="" class="price-card__check" aria-hidden="true">いつでも解約可・解約手数料 <span class="price-card__amount">¥0</span></li>
+                            <li><img src="img/check.svg" alt="" class="price-card__check" aria-hidden="true">毎月の負担を最小に</li>
+                        </ul>
+                        <a href="#contact" class="price-card__cta price-card__cta--featured">月額プランで申込む</a>
+                    </article>
+
+                    <article class="price-card">
+                        <div class="price-card__top">
+                            <span class="price-card__label">2年契約プラン</span>
+                        </div>
+                        <p class="price-card__lead">初期費用0。少額スタートしたい方へ。</p>
+                        <div class="price-card__main">
+                            <div class="price-card__headline">
+                                <p class="price-card__term">月額</p>
+                                <p class="price-card__price">¥5,480<span class="price-card__unit">/台</span></p>
+                            </div>
+                            <p class="price-card__tax">※税込 ¥6,028</p>
+                        </div>
+                        <div class="price-card__summary">
+                            <div class="price-card__summary-row">
+                                <span>初期費用</span>
+                                <strong>¥0</strong>
+                            </div>
+                            <div class="price-card__summary-row">
+                                <span>初回お支払い</span>
+                                <strong>¥18,084（税込・3ヶ月分）</strong>
+                            </div>
+                            <div class="price-card__summary-row">
+                                <span>4ヶ月目以降</span>
+                                <strong>¥6,028/月（税込）</strong>
+                            </div>
+                        </div>
+                        <ul class="price-card__features">
+                            <li><img src="img/check.svg" alt="" class="price-card__check" aria-hidden="true">初期費用 ¥0</li>
+                            <li><img src="img/check.svg" alt="" class="price-card__check" aria-hidden="true">SMS受信番号あり</li>
+                            <li><img src="img/check.svg" alt="" class="price-card__check" aria-hidden="true">3プラン中、初回お支払いが最少額</li>
+                            <li><img src="img/check.svg" alt="" class="price-card__check" aria-hidden="true">全機能を制限なく利用可</li>
+                            <li class="price-card__note">※2年間のご利用が必要（期間内解約は別途手数料）</li>
+                        </ul>
+                        <a href="#contact" class="price-card__cta">2年契約プランで申込む</a>
+                    </article>
+                </div>
+
+                <div class="price-options-panel fade-in">
+                    <div class="price-options-panel__block">
+                        <span class="option-label">ご注意事項</span>
+                        <ul class="option-list">
+                            <li>・表示価格はすべて税込です。各プランに税抜価格を併記しています。</li>
+                            <li>・月額プラン・年払いプランは、いつでも解約可能です。</li>
+                            <li>・2年契約プランは2年間のご利用が前提です。期間内に解約される場合、別途解約手数料が発生します。</li>
+                        </ul>
+                    </div>
+                </div>
+
+            <!-- Agency & Corporate CTA Buttons -->
+            <div class="price-agency-cta fade-in">
+                <a href="#contact" class="agency-cta-button line-button">
+                    <img src="img/ico-line.svg" alt="LINE" class="line-icon-img">
+                    海外利用・法人プラン お問い合わせ
+                </a>
+                <a href="#contact" class="agency-cta-button">
+                    代理店募集中！ 詳細はこちら
+                </a>
+            </div>
+
+
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq-section" class="faq-section">
+            <div class="container">
+                <div class="faq-header fade-in">
+                    <h2 class="section-title-white"><span class="reveal-text">よくある質問</span></h2>
+                    <p class="section-subtitle">FAQ</p>
+                </div>
+
+                <!-- Category Tabs -->
+                <div class="faq-tabs fade-in">
+                    <button class="faq-tab-btn active" data-filter="spec">サービス概要・仕様</button>
+                    <button class="faq-tab-btn" data-filter="contract">契約・料金</button>
+                    <button class="faq-tab-btn" data-filter="security">データ管理・セキュリティ</button>
+                    <button class="faq-tab-btn" data-filter="business">法人・ビジネス利用</button>
+                </div>
+
+                <div class="faq-list fade-in">
+                    <!-- === サービス概要・仕様 === -->
+                    <!-- Q. 機種変更をした場合、データは引き継がれますか？ -->
+                    <div class="faq-item" data-category="spec">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>機種変更をした場合、データは引き継がれますか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>仮想デバイス（Android）はクラウド上で動作しているため、機種変更後もログインを行えばすぐに復元でき、継続利用が可能です。</p>
+                        </div>
+                    </div>
+
+                    <!-- Q. OSはAndroidですか？ -->
+                    <div class="faq-item" data-category="spec">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>OSはAndroidですか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>仮想デバイスはAndroidです。操作する側はiOS／Androidの両方に対応しています。</p>
+                        </div>
+                    </div>
+
+                    <!-- Q. 電話はできますか？ -->
+                    <div class="faq-item" data-category="spec">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>電話はできますか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>電話はできません。アプリを含め、音声通話には対応しておりません。（※SMS受信はオプションでご利用いただけます）</p>
+                        </div>
+                    </div>
+
+                    <!-- Q. カメラは使えますか？ -->
+                    <div class="faq-item" data-category="spec">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>カメラは使えますか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>カメラ機能には対応しておりません。</p>
+                        </div>
+                    </div>
+
+                    <!-- Q. プッシュ通知は届きますか？ -->
+                    <div class="faq-item" data-category="spec">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>プッシュ通知は届きますか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>仕様上、お手持ちのスマートフォン（親機）等へのプッシュ通知には対応しておりません。新着メッセージや通知は、アプリを起動してご確認いただく形となります。</p>
+                        </div>
+                    </div>
+
+                    <!-- Q. 複数の仮想端末を同時に使えますか？ -->
+                    <div class="faq-item" data-category="spec">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>複数の仮想端末を同時に使えますか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>1つのアプリ内で複数の仮想デバイスを管理できます。ワンタップで切り替えて操作いただけます。</p>
+                        </div>
+                    </div>
+
+                    <!-- Q. クリップボードはメイン端末と共有できますか？ -->
+                    <div class="faq-item" data-category="spec">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>クリップボードはメイン端末と共有できますか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>メイン端末（操作側）でコピーした内容を、ボタン操作で仮想端末側へ反映することができます。</p>
+                        </div>
+                    </div>
+
+                    <!-- Q. 使えないアプリはありますか？ -->
+                    <div class="faq-item" data-category="spec">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>使えないアプリはありますか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>スマモは匿名性を守るための仮想端末という仕組み上、端末認証やSIM認証を必要とする一部のアプリ（決済・金融系など）はご利用いただけません。詳しくは<a href="policy.html#application"><u>対応していないアプリ一覧</u></a>をご確認ください。</p>
+                        </div>
+                    </div>
+
+                    <!-- Q. 非対応端末はありますか？ -->
+                    <div class="faq-item" data-category="spec">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>非対応端末はありますか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>基本的には最新のiOS／Android端末に対応しております。ごく一部の旧式OSや低スペック端末では、動作が不安定になる可能性があります。</p>
+                        </div>
+                    </div>
+
+                    <!-- Q. iPhoneでも使えますか？ -->
+                    <div class="faq-item" data-category="spec">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>iPhoneでも使えますか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>操作側はiPhoneにも対応しています。仮想側はAndroidとなります。</p>
+                        </div>
+                    </div>
+
+                    <!-- Q. 海外リージョンプランとは何ですか？ -->
+                    <div class="faq-item" data-category="spec">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>海外リージョンプランとは何ですか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>仮想端末のサーバー設置リージョンを海外に設定するプランです。データ管轄が海外になることで、より高いプライバシー性を確保した運用が可能となります。強固なセキュリティを求める方におすすめです。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- === 契約・料金 === -->
+                    <!-- Q. 契約にはどんな情報が必要ですか？ -->
+                    <div class="faq-item" data-category="contract">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>契約にはどんな情報が必要ですか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>メールアドレス・お名前・お支払い方法のご登録でご契約いただけます。本人確認書類のご提出は不要です。</p>
+                        </div>
+                    </div>
+
+                    <!-- Q. 年間プランはありますか？ -->
+                    <div class="faq-item" data-category="contract">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>年間プランはありますか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>ございます。年払いには割引をご用意しております。</p>
+                        </div>
+                    </div>
+
+                    <!-- Q. 別途通信費・パケット代はかかりますか？ -->
+                    <div class="faq-item" data-category="contract">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>別途通信費・パケット代はかかりますか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>通信はお手持ちのスマートフォン（親機）側の回線を使用するため、スマモ側で別途通信料が発生することはありません。</p>
+                        </div>
+                    </div>
+
+                    <!-- Q. 申し込み後、どれくらいで使えますか？ -->
+                    <div class="faq-item" data-category="contract">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>申し込み後、どれくらいで使えますか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>最短数分でご利用いただけます。ただし、在庫状況によっては2営業日ほどお時間をいただく場合がございます。</p>
+                        </div>
+                    </div>
+
+                    <!-- Q. 2年契約は途中解約はできますか？ -->
+                    <div class="faq-item" data-category="contract">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>2年契約は途中解約はできますか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>途中解約は可能です。ただし、違約金として残月数分の月額相当額が発生いたします。</p>
+                        </div>
+                    </div>
+
+                    <!-- Q. 解約後、仮想端末はどうなりますか？ -->
+                    <div class="faq-item" data-category="contract">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>解約後、仮想端末はどうなりますか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>弊社にて即時初期化を行います。</p>
+                        </div>
+                    </div>
+
+                    <!-- Q. 解約後、再契約はできますか？ -->
+                    <div class="faq-item" data-category="contract">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>解約後、再契約はできますか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>はい、再度ご契約いただけます。ただし解約時に仮想端末は即時初期化されるため、以前の環境・アプリ・データの復元はできかねます。</p>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <!-- Q. サーバーがハッキングされたとき、情報は流出しますか？ -->
+                    <div class="faq-item" data-category="security">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>サーバーがハッキングされたとき、情報は流出しますか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>WebRTCによるP2P暗号化、運用ログの最小化など、情報流出リスクを最小化する設計を採用しています。</p>
+                        </div>
+                    </div>
+
+                    <!-- Q. 不正利用の防止策はありますか？ -->
+                    <div class="faq-item" data-category="security">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>不正利用の防止策はありますか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>端末指定および二段階認証を標準搭載しております。</p>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Q. どれくらいの台数まで管理できますか？ -->
+                    <div class="faq-item" data-category="business">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>どれくらいの台数まで管理できますか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>300台までの継続利用が可能です。それ以上必要な場合は、お問い合わせよりご相談ください。</p>
+                        </div>
+                    </div>
+
+                    <!-- Q. 管理者権限はありますか？ -->
+                    <div class="faq-item" data-category="business">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>管理者権限はありますか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>ございます。管理者となることで、契約しているすべての仮想端末へのアクセス・管理が可能となります。</p>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                    <!-- Q. 代理店は募集していますか？ -->
+                    <div class="faq-item" data-category="business">
+                        <div class="faq-question">
+                            <span class="q-label">Q.</span>
+                            <h3>代理店は募集していますか？</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="a-label">A.</span>
+                            <p>お気軽にお問い合わせよりご連絡ください。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-more-wrap fade-in">
+                    <button type="button" class="faq-more-btn" id="faqMoreBtn">もっと見る</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section (Strict Hero Reuse) -->
+        <section id="final-cta-section" class="final-cta-section">
+            <div class="container fade-in">
+                <div class="final-cta-content">
+                    <!-- Main Logo (Literal Hero Reuse) -->
+                    <div class="hero-item logo-wrap">
+                        <p class="logo-tagline">1台2役 世界初のアプリ内スマートフォン</p>
+                        <img src="img/logo.png" alt="SMAMO" class="main-logo-img">
+                    </div>
+
+                    <!-- CTA Button (Exact Hero Reuse) -->
+                    <div class="cta-wrap">
+                        <div class="cta-inner">
+                            <img src="img/cta-btn-bubble.png" alt="20台限定 3日間無料体験実施中" class="cta-bubble">
+                            <a href="#price-section" class="cta-link-main">
+                                <img src="img/cta-btn.png" alt="今すぐ無料体験" class="cta-img-main">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Hero Sub-text Image (True Hero Reuse) -->
+                    <div class="final-subtext-wrap">
+                        <img src="img/sub-text.png" alt="別のLINEも写真も通知も、誰にも気づかれない。" class="final-subtext-img">
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container footer-container">
+                <div class="footer-logo">
+                    <img src="img/logo.png" alt="SMAMO" class="footer-logo-img">
+                </div>
+                <nav class="footer-nav">
+                    <a href="policy.html#terms" rel="noopener noreferrer">利用規約</a>
+                    <a href="policy.html#privacy" rel="noopener noreferrer">プライバシーポリシー</a>
+                    <a href="policy.html#security" rel="noopener noreferrer">情報セキュリティ基本方針</a>
+                    <a href="policy.html#antisocial" rel="noopener noreferrer">反社会的勢力排除の方針</a>
+                    <a href="policy.html#legal" rel="noopener noreferrer">特定商取引法に基づく表記</a>
+                    <a href="https://ext.cx/" target="_blank" rel="noopener noreferrer">運営会社</a>
+                </nav>
+                <p class="copyright">© 2026 SMAMO. All rights reserved.<br class="sp-only">（無断転載および引用禁止）</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Modal Popup Form -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal-content fade-in-up">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <div id="modalFormArea">
+                <div class="modal-header">
+                    <h2 class="modal-title">今すぐ無料体験！</h2>
+                    <p class="modal-subtitle">20台限定！3日間無料でスマモを体験しよう</p>
+                </div>
+
+                <!-- Flow Section -->
+                <div class="modal-flow">
+                    <div class="flow-item">
+                        <div class="flow-icon-wrap">
+                            <lord-icon src="https://cdn.lordicon.com/bushiqea.json" trigger="loop" delay="2000"
+                                colors="primary:#111111" style="width:40px;height:40px">
+                            </lord-icon>
+                        </div>
+                        <div class="flow-text-wrap">
+                            <span class="flow-title">アカウント作成</span>
+                            <span class="flow-subtitle">（スマモID発行）</span>
+                        </div>
+                    </div>
+                    <div class="flow-arrow">
+                        <i class="fa-solid fa-caret-right"></i>
+                    </div>
+                    <div class="flow-item">
+                        <div class="flow-icon-wrap">
+                            <lord-icon src="https://cdn.lordicon.com/vmztfafm.json" trigger="loop" delay="2000"
+                                colors="primary:#111111" style="width:40px;height:40px">
+                            </lord-icon>
+                        </div>
+                        <div class="flow-text-wrap">
+                            <span class="flow-title">お支払い登録</span>
+                            <span class="flow-subtitle">3日間無料！</span>
+                        </div>
+                    </div>
+                    <div class="flow-arrow">
+                        <i class="fa-solid fa-caret-right"></i>
+                    </div>
+                    <div class="flow-item">
+                        <div class="flow-icon-wrap">
+                            <lord-icon src="https://cdn.lordicon.com/dxfkntgu.json" trigger="loop" delay="2000"
+                                colors="primary:#111111" state="hover-slide" style="width:40px;height:40px">
+                            </lord-icon>
+                        </div>
+                        <div class="flow-text-wrap">
+                            <span class="flow-title">アプリダウンロード</span>
+                            <span class="flow-subtitle">利用開始</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="account-info-card" aria-label="アカウント作成案内">
+                    <div class="account-info-card__icon" aria-hidden="true">
+                        <i class="fa-regular fa-id-badge"></i>
+                    </div>
+                    <div class="account-info-card__body">
+                        <p class="account-info-card__title">ここで入力した情報が、あなたのスマモアカウントになります。</p>
+                        <p class="account-info-card__text">作成後、アプリへのログインに使用します。</p>
+                    </div>
+                </div>
+
+                <form id="applicationForm" class="application-form" novalidate>
+                    <div class="form-group">
+                        <label for="name">お名前 <span class="required-badge">必須</span></label>
+                        <input type="text" id="name" name="name" placeholder="山田 太郎" required>
+                        <p class="error-text">入力内容に誤りがあります。</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">メールアドレス <span class="required-badge">必須</span></label>
+                        <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+                        <p class="error-text">入力内容に誤りがあります。</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">パスワード <span class="required-badge">必須</span></label>
+                        <input type="password" id="password" name="password" placeholder="半角英数字8文字以上" required>
+                        <p class="error-text">入力内容に誤りがあります。</p>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submitBtn">アカウントを作成して次へ</button>
+                </form>
+            </div>
+
+            <div id="modalFormAreaStep2" style="display: none;">
+                <div class="modal-header">
+                    <h2 class="modal-title modal-title--plain">お支払い登録</h2>
+                    <p class="modal-subtitle">20台限定！3日間無料でスマモを体験しよう</p>
+                </div>
+
+                <div class="account-success-card" aria-label="アカウント作成完了案内">
+                    <div class="account-success-card__icon" aria-hidden="true">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <div class="account-success-card__body">
+                        <p class="account-success-card__title">アカウント作成完了 <span>(taro@example.com)</span></p>
+                    </div>
+                </div>
+
+                <div class="account-info-card plan-summary-card" aria-label="選択中のプラン">
+                    <div class="plan-summary-card__top">
+                        <div>
+                            <p class="plan-summary-card__label">選択中のプラン</p>
+                            <h3 class="plan-summary-card__title">スマモ 月額プラン</h3>
+                        </div>
+                        <div class="plan-summary-card__price-wrap">
+                            <strong class="plan-summary-card__price">¥980</strong>
+                            <span class="plan-summary-card__unit">/月</span>
+                        </div>
+                    </div>
+                    <div class="plan-summary-card__divider"></div>
+                    <div class="plan-summary-card__row">
+                        <span>3日間無料体験</span>
+                        <strong class="is-free">¥0</strong>
+                    </div>
+                    <div class="plan-summary-card__row plan-summary-card__row--subtle">
+                        <span>2026年5月17日 以降</span>
+                        <span>¥980/月（自動更新）</span>
+                    </div>
+                    <div class="plan-summary-card__divider plan-summary-card__divider--option" id="planOptionDivider" style="display: none;"></div>
+                    <div class="plan-summary-card__row plan-summary-card__row--option" id="planOptionRow" style="display: none;">
+                        <span>+ SMS受信オプション</span>
+                        <span>¥500/月</span>
+                    </div>
+                </div>
+
+                <form id="applicationFormStep2" class="application-form" novalidate>
+                    <div class="form-group form-group--option">
+                        <div class="form-option-box">
+                            <label for="smsOptionStep2" class="form-checkbox">
+                                <input type="checkbox" id="smsOptionStep2" name="smsOptionStep2">
+                                <span>SMS受信オプションを追加（¥500/月）</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="payment-secure-note" aria-label="決済情報の保護について">
+                        <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                        <p>決済情報は Stripe により暗号化・保護されます。当社はカード番号を保持しません。</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cardNumber">カード番号 <span class="required-badge">必須</span></label>
+                        <div class="payment-input-wrap">
+                            <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+                            <i class="fa-regular fa-credit-card payment-input-icon" aria-hidden="true"></i>
+                        </div>
+                        <p class="error-text">入力内容に誤りがあります。</p>
+                    </div>
+
+                    <div class="payment-form-row">
+                        <div class="form-group form-group--half">
+                            <label for="cardExpiry">有効期限 <span class="required-badge">必須</span></label>
+                            <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM / YY" required>
+                            <p class="error-text">入力内容に誤りがあります。</p>
+                        </div>
+                        <div class="form-group form-group--half">
+                            <label for="cardCvc">セキュリティコード <span class="required-badge">必須</span></label>
+                            <input type="text" id="cardCvc" name="cardCvc" placeholder="CVC" required>
+                            <p class="error-text">入力内容に誤りがあります。</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cardName">カード名義 <span class="required-badge">必須</span></label>
+                        <input type="text" id="cardName" name="cardName" placeholder="TARO YAMADA" required>
+                        <p class="error-text">入力内容に誤りがあります。</p>
+                    </div>
+                    <div class="payment-confirm-card" aria-label="無料体験の確認事項">
+                        <div class="payment-confirm-card__item">
+                            <i class="fa-solid fa-check" aria-hidden="true"></i>
+                            <p><strong>3日後まで請求は発生しません</strong>（無料期間中の解約は ¥0）</p>
+                        </div>
+                        <div class="payment-confirm-card__item">
+                            <i class="fa-solid fa-check" aria-hidden="true"></i>
+                            <p>いつでもアプリ内から解約可能</p>
+                        </div>
+                        <div class="payment-confirm-card__item">
+                            <i class="fa-solid fa-check" aria-hidden="true"></i>
+                            <p>無料期間終了の前日にメールでお知らせ</p>
+                        </div>
+                    </div>
+                    <div class="form-checkbox form-checkbox--terms">
+                        <input type="checkbox" id="termsStep2" name="termsStep2" required>
+                        <label for="termsStep2"><a href="policy.html#terms"
+                                target="_blank">利用規約とプライバシーポリシー</a>に同意する</label>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submitBtnStep2">無料体験を開始する</button>
+                </form>
+            </div>
+
+            <div id="successMessage" class="success-message" style="display: none;">
+                <div class="success-icon-wrap">
+                    <lord-icon src="https://cdn.lordicon.com/lupuorrc.json" trigger="loop" delay="500"
+                        colors="primary:#007aff" style="width:100px;height:100px">
+                    </lord-icon>
+                </div>
+                <h3 class="success-msg-title">申込完了</h3>
+                <p class="success-msg-desc">スマモの無料体験申込が完了しました。<br class="sp-only">担当者より詳細をご連絡します。<br>自動返信メールを確認してください。
+                </p>
+                <button class="submit-btn" id="closeSuccess">閉じる</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Floating Button (PC Only) -->
+    <a href="#price-section" class="float-btn" id="floatBtn">
+        <img src="img/float.png" alt="料金プランを見る">
+    </a>
+
+</body>
+
+</html>
